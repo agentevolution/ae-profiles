@@ -1,0 +1,129 @@
+/* ====== Structure ====== */
+
+.post-type-archive-aeprofiles .agent-wrap {
+	float: right;
+	clear: right;
+	width: auto;
+	margin: 0 0 70px;
+	width: 40%;
+}
+
+.post-type-archive-aeprofiles .agent-wrap.even {
+	border: 0;
+	float: left;
+	clear: left;
+}
+
+.agent-details {
+	float: left;
+	position: relative;
+	height: 160px;
+}
+
+.single-aeprofiles .agent-details,
+.post-type-archive-aeprofiles .agent-details {
+	position: relative;
+	height: 160px;
+}
+
+.agent-social-profiles {
+	float: left;
+	clear: left;
+	position: absolute;
+	bottom: 0;
+	width: 150px;
+}
+
+.single-aeprofiles .agent-bio { clear: both; padding-top: 30px; }
+
+.single-aeprofiles .agent-details p {
+	font-size: 1em;
+	line-height: 100%;
+	padding-bottom: 16px;
+}
+
+.single-aeprofiles p.title { font-weight: bold; }
+
+/* ====== Hyperlinks ====== */
+
+
+.post-type-archive-aeprofiles a.fn {
+	font-size: 1.5em;
+	margin-bottom: 10px;
+	display: block;
+}
+
+.post-type-archive-aeprofiles a,
+.post-type-archive-aeprofiles a:hover,
+.single-aeprofiles .agent-details a,
+.single-aeprofiles .agent-details a:hover {
+	text-decoration: none;
+}
+
+.agent-social-profiles a {
+	display: block;
+	width: 32px;
+	height: 32px;
+	float: left;
+	margin-right: 15px;
+}
+
+.agent-social-profiles .agent-facebook { background: url(images/fb.png); }
+.agent-social-profiles .agent-twitter { background: url(images/twitter.png); }
+.agent-social-profiles .agent-linkedin { background: url(images/linkedin.png); }
+
+/* ====== Images ====== */
+
+
+.single-aeprofiles .agent-wrap img,
+.post-type-archive-aeprofiles img {
+	float: left;
+	-moz-box-shadow: 2px 2px 3px #DDD;
+	-webkit-box-shadow: 2px 2px 3px #DDD;
+	-khtml-box-shadow: 2px 2px 3px #DDD;
+	box-shadow: 2px 2px 3px #DDD;
+	margin-right: 20px;
+	width: 170px;
+	height: 170px;
+}
+
+/* ====== Misc. ====== */
+
+.agent-details .type, .featured-agent .type {display: none;}
+.post-type-archive-aeprofiles h1.entry-title { margin-bottom: 25px; }
+
+/* ====== Widget ====== */
+
+.widget.featured-agent img {
+	float: left;
+	clear: left;
+	width: 80px;
+	height: 80px;
+	margin-right: 15px;
+	margin-bottom: 15px;
+	border: 2px solid #fff;
+}
+
+.widget.featured-agent p {
+	font-size: 1em;
+	line-height: 170%;
+}
+
+.widget.featured-agent .agent-social-profiles {
+	position: static;
+	float: left;
+	clear: both;
+}
+
+.widget-agent-details {
+	float: left;
+}
+
+.widget-agent-wrap {
+	float: left;
+	clear: left;
+	padding: 20px 0;
+	border-bottom: 1px solid #888;
+	border-bottom: 1px solid rgba(00,00,00,0.3);
+	width: 100%;
+}
