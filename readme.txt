@@ -3,7 +3,7 @@ Contributors:
 Tags: real estate, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.2.1
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 
 This plugin plugin creates an agent directory for genesis.
 
@@ -22,6 +22,10 @@ The Agent Evolution Profiles plugin uses custom post types and templates to crea
 
 
 == Changelog ==
+
+= 0.1.1 =
+* Uses template_includes instead of template_redirect
+* Relies on helper methods provided by agentevo framework
 
 = 0.1.0 =
 * Initial beta release
