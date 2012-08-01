@@ -9,7 +9,7 @@ add_action( 'genesis_post_content' , 'agent_post_content' );
 function agent_post_content() { ?>
 
 	<div class="agent-wrap">
-		<?php echo aep_image(); ?>
+		<?php echo agentevo_image(); ?>
 		<div class="agent-details vcard">
 			<span class="fn" style="display:none;"><?php the_title(); ?></span>
 			<?php echo do_agent_details(); ?>

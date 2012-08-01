@@ -10,9 +10,17 @@
             <div id="post-body-content" class="has-sidebar-content">
 				<p>If you would like to move the AEP CSS to your theme's css file for purposes of avoiding an additional HTTP request or for ease of customization, check the box below.</p>
 				<?php
+
 				$aep_options = get_option('plugin_ae_profiles_settings');
-				if ($aep_options['stylesheet_load'] == 1)
+
+				if ( !isset($aep_options['stylesheet_load']) ) {
+					$aep_options['stylesheet_load'] = 0;
+				}
+
+				if ($aep_options['stylesheet_load'] == 1) {
 					echo '<p style="color:red; font-weight: bold;">The plugin stylesheet has been deregistered<p>';
+				}
+
 				?>
 				<form action="options.php" method="post" id="aep-stylesheet-options-form">
 					<?php settings_fields('aep_options'); ?>

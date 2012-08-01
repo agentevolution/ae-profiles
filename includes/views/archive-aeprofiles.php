@@ -6,6 +6,11 @@ remove_action( 'genesis_after_post', 'genesis_do_author_box_single' );
 remove_action('genesis_before_loop', 'genesis_do_breadcrumbs');
 remove_action( 'genesis_loop', 'genesis_do_loop');
 add_action( 'genesis_loop' , 'agent_directory_archive_loop' );
+add_filter( 'body_class', 'add_body_class' );
+function add_body_class( $classes ) {
+   $classes[] = 'archive-aeprofiles';
+   return $classes;
+}
 
 function agent_directory_archive_loop() {
 ?>
@@ -21,7 +26,7 @@ function agent_directory_archive_loop() {
 	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
 	<div class="agent-wrap">
-		<?php printf('<a href="%s">%s</a>', get_permalink(), aep_image() ); ?>
+		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image() ); ?>
 		<div class="agent-details vcard">
 		<?php
 

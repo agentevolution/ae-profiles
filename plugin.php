@@ -76,7 +76,10 @@ function agent_profiles_init() {
 	add_action('wp_enqueue_scripts', 'add_aep_css');
 	function add_aep_css() {
 		$options = get_option('plugin_ae_profiles_settings');
-		if ('1' != $options['stylesheet_load']) {
+		if ( !isset($options['stylesheet_load']) ) {
+			$options['stylesheet_load'] = 0;
+		}
+		if ( '1' != $options['stylesheet_load'] ) {
 	        $aep_css_path = AEP_URL . 'aep.css';
 	        if ( file_exists(dirname( __FILE__ ) . '/aep.css') ) {
 	            wp_register_style('aepCSS', $aep_css_path);

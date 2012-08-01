@@ -48,7 +48,7 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 				if ( $instance['show_all'] == 1 )
 					echo '<div class="widget-agent-wrap">';
 
-				echo '<a href="' . get_permalink() . '">' . aep_image() . '</a>';
+				echo '<a href="' . get_permalink() . '">' . agentevo_image() . '</a>';
 				echo '<div class="widget-agent-details">' . do_agent_details() . '</div>';
 				echo do_agent_social();
 
