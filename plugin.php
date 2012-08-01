@@ -23,14 +23,14 @@ function ae_profiles_activation() {
 
 		$latest = '1.7.1';
 
-		$theme_info = get_theme_data( get_template_directory() . '/style.css' );
+		$theme_info = wp_get_theme('genesis');
 
 		if ( 'genesis' != basename( get_template_directory() ) ) {
 	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
 			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
 		}
 
-		if ( version_compare( $theme_info['Version'], $latest, '<' ) ) {
+		if ( version_compare( $theme_info->Version, $latest, '<' ) ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
 			wp_die( sprintf( __( 'Sorry, you cannot activate without <a href="%s">Genesis %s</a> or greater', 'aep' ), 'http://www.studiopress.com/support/showthread.php?t=19576', $latest ) );
 		}
