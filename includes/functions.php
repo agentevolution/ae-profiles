@@ -13,7 +13,7 @@ function aep_template_include( $template ) {
 
     foreach ($taxonomies as $post_type_tax) {
         if ($queried_tax == $post_type_tax) {
-            if ( file_exists(get_stylesheet_directory() . '/' . $post_type_tax . '-taxonomy.php' ) ) {
+            if ( file_exists(get_stylesheet_directory() . '/archive-' . $post_type . '.php' ) ) {
                 return $template;
             } else {
                 return dirname( __FILE__ ) . '/views/archive-' . $post_type . '.php';
@@ -22,7 +22,7 @@ function aep_template_include( $template ) {
     }
 
     if ( is_post_type_archive( $post_type ) ) {
-        if ( file_exists(get_stylesheet_directory() . '/single-' . $post_type . '.php') ) {
+        if ( file_exists(get_stylesheet_directory() . '/archive-' . $post_type . '.php') ) {
             return $template;
         } else {
             return dirname( __FILE__ ) . '/views/archive-' . $post_type . '.php';
@@ -71,7 +71,9 @@ function do_agent_details() {
 
         $address .= '</p>';
 
-        $output .= $address;
+        if (genesis_get_custom_field('_agent_address') != '' || genesis_get_custom_field('_agent_city') != '' || genesis_get_custom_field('_agent_state') != '' ) {
+            $output .= $address;
+        }
     }
 
     return $output;

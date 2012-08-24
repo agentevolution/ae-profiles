@@ -6,7 +6,7 @@
 	Author: Justin Tallant
 	Author URI: http://www.justintallant.com
 
-	Version: 0.1.1
+	Version: 0.1.2
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php

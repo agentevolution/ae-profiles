@@ -3,7 +3,7 @@ Contributors:
 Tags: real estate, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.2.1
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 
 This plugin plugin creates an agent directory for genesis.
 
@@ -22,6 +22,10 @@ The Agent Evolution Profiles plugin uses custom post types and templates to crea
 
 
 == Changelog ==
+
+= 0.1.2 =
+* Taxonomy template include checks for archive-ae-profiles.php instead of individual taxonomy templates.
+* If all the address fields are empty no address is shown
 
 = 0.1.1 =
 * Uses template_includes instead of template_redirect
