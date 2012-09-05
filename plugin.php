@@ -6,7 +6,7 @@
 	Author: Justin Tallant
 	Author URI: http://www.justintallant.com
 
-	Version: 0.1.2
+	Version: 0.1.3
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -21,7 +21,7 @@ register_activation_hook( __FILE__, 'ae_profiles_activation' );
  */
 function ae_profiles_activation() {
 
-		if ( 'genesis' != basename( get_template_directory() ) || !is_dir(get_theme_root() . '/agentevo') ) {
+		if ( 'genesis' != basename( get_template_directory() ) ) {
 	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
 			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
 		}
@@ -50,10 +50,13 @@ function agent_profiles_init() {
 	if ( ! function_exists( 'genesis_get_option' ) )
 		return;
 
+	if ( ! function_exists( 'agentevo_image' ) )
+		require_once dirname( __FILE__ ) . '/includes/helpers.php';
+
 	global $_agent_directory;
 
 	define( 'AEP_URL', plugin_dir_url( __FILE__ ) );
-	define( 'AEP_VERSION', '0.1.0' );
+	define( 'AEP_VERSION', '0.1.3' );
 
 	/** Loads textdomain for translation */
 	load_plugin_textdomain( 'aep', false, basename( dirname( __FILE__ ) ) . '/languages/' );
@@ -66,17 +69,22 @@ function agent_profiles_init() {
 	/** Enqueus style file if it exists */
 	add_action('wp_enqueue_scripts', 'add_aep_css');
 	function add_aep_css() {
+
 		$options = get_option('plugin_ae_profiles_settings');
+
 		if ( !isset($options['stylesheet_load']) ) {
 			$options['stylesheet_load'] = 0;
 		}
-		if ( '1' != $options['stylesheet_load'] ) {
-	        $aep_css_path = AEP_URL . 'aep.css';
-	        if ( file_exists(dirname( __FILE__ ) . '/aep.css') ) {
-	            wp_register_style('aepCSS', $aep_css_path);
-	            wp_enqueue_style('aepCSS');
-	        }
+
+		if ( 1 == $options['stylesheet_load'] ) {
+			return;
 		}
+
+        $aep_css_path = AEP_URL . 'aep.css';
+        if ( file_exists(dirname( __FILE__ ) . '/aep.css') ) {
+            wp_register_style('agent-profiles', $aep_css_path);
+            wp_enqueue_style('agent-profiles');
+        }
     }
 
     add_action( 'widgets_init', 'register_agent_directory_widget' );

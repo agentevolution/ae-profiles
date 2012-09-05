@@ -1,6 +1,6 @@
 /* ====== Structure ====== */
 
-.post-type-archive-aeprofiles .agent-wrap {
+.archive-aeprofiles .agent-wrap {
 	float: right;
 	clear: right;
 	width: auto;
@@ -8,7 +8,7 @@
 	width: 40%;
 }
 
-.post-type-archive-aeprofiles .agent-wrap.even {
+.archive-aeprofiles .agent-wrap.even {
 	border: 0;
 	float: left;
 	clear: left;
@@ -21,7 +21,7 @@
 }
 
 .single-aeprofiles .agent-details,
-.post-type-archive-aeprofiles .agent-details {
+.archive-aeprofiles .agent-details {
 	position: relative;
 	height: 160px;
 }
@@ -47,14 +47,14 @@
 /* ====== Hyperlinks ====== */
 
 
-.post-type-archive-aeprofiles a.fn {
+.archive-aeprofiles a.fn {
 	font-size: 1.5em;
 	margin-bottom: 10px;
 	display: block;
 }
 
-.post-type-archive-aeprofiles a,
-.post-type-archive-aeprofiles a:hover,
+.archive-aeprofiles a,
+.archive-aeprofiles a:hover,
 .single-aeprofiles .agent-details a,
 .single-aeprofiles .agent-details a:hover {
 	text-decoration: none;
@@ -76,7 +76,7 @@
 
 
 .single-aeprofiles .agent-wrap img,
-.post-type-archive-aeprofiles img {
+.archive-aeprofiles img {
 	float: left;
 	-moz-box-shadow: 2px 2px 3px #DDD;
 	-webkit-box-shadow: 2px 2px 3px #DDD;
@@ -90,7 +90,7 @@
 /* ====== Misc. ====== */
 
 .agent-details .type, .featured-agent .type {display: none;}
-.post-type-archive-aeprofiles h1.entry-title { margin-bottom: 25px; }
+.archive-aeprofiles h1.entry-title { margin-bottom: 25px; }
 
 /* ====== Widget ====== */
 
