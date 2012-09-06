@@ -72,15 +72,15 @@ function agentevo_get_image($pid, $size="thumbnail") {
 		}
 	}
 
-	if ( false == get_the_post_thumbnail($pid, $size) ) {
-		if ( file_exists( AGENTEVO_DIR . '/images/default-thumb' . $dimensions . '.png' ) ) {
-			return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
-		} else {
-			return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb-150x150.png" alt="no preview available" style="width:' . $custom_size_width . 'px; height:' . $custom_size_height . 'px;"/>';
-		}
-	} else {
+	if ( false != get_the_post_thumbnail($pid, $size) ) {
 		return get_the_post_thumbnail($pid, $size);
 	}
+
+	if ( file_exists( get_theme_root() . '/agentevo/images/default-thumb' . $dimensions . '.png' ) ) {
+		return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
+	}
+
+	return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb-150x150.png" alt="no preview available" style="width:' . $custom_size_width . 'px; height:' . $custom_size_height . 'px;"/>';
 }
 
 /**
@@ -97,9 +97,12 @@ function ae_is_taxonomy_of($post_type) {
 	return false;
 }
 
-function agentevo_bootstrap_carousel($category='Slider', $post_count=3, $wrap_id='tbsCarousel') {
+function agentevo_bootstrap_carousel($category='Slider', $post_count=3, $wrap_id='tbsCarousel', $nav = array('next' => '&rsaquo;', 'prev' => '&lsaquo;') ) {
+
 	global $post;
+
 	$id = get_cat_ID($category);
+
 	$args = array(
 		'numberposts'   => $post_count,
 		'category'      => $id
@@ -107,21 +110,32 @@ function agentevo_bootstrap_carousel($category='Slider', $post_count=3, $wrap_id
 
 	$slider_posts = get_posts($args);
 
-	$open = '<div id="' . $wrap_id . '" class="carousel slide"><div class="carousel-inner">';
 	$items = '';
-	$toggle = '<a class="carousel-control left" href="#' . $wrap_id . '" data-slide="prev"></a><a class="carousel-control right" href="#' . $wrap_id . '" data-slide="next"></a>';
-	$close = sprintf('</div><!-- .carousel-inner -->%s</div><!-- #tbsCarousel -->', $toggle);
 	$count = 0;
+
 	foreach( $slider_posts as $post ) {
+
 		$count++;
-		$class = 'item';
-		if ( $count == 1 ) {
-			$class = 'item active';
-		}
-		$items .= sprintf('<div class="%s">%s<div class="carousel-caption"><h4>%s</h4><p>%s</p></div><!-- .carousel-caption --></div><!-- .item -->', $class, get_the_post_thumbnail($post->ID,"slider"), get_the_title($post->ID), $post->post_excerpt );
+
+		$class = ( $count == 1 ) ? 'item active' : 'item';
+
+		$items .= sprintf(
+			'<div class="%s">%s<div class="carousel-caption"><h4>%s</h4><p>%s</p></div><!-- .carousel-caption --></div><!-- .item -->',
+			$class, get_the_post_thumbnail($post->ID,"slider"), get_the_title($post->ID), $post->post_excerpt
+		);
 	}
 
-	return $open . $items . $close;
+	$toggle = sprintf(
+		'<a class="carousel-control left" href="#%1$s" data-slide="prev">%2$s</a><a class="carousel-control right" href="#%1$s" data-slide="next">%3$s</a>',
+		$wrap_id, $nav['prev'], $nav['next']
+	);
+
+	$carousel = sprintf(
+		'<div id="%1$s" class="carousel slide"><div class="carousel-inner">%2$s</div><!-- .carousel-inner -->%3$s</div><!-- #%1$s -->',
+		$wrap_id, $items, $toggle
+	);
+
+	return $carousel;
 }
 
 function agentevo_linked_title() {
