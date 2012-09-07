@@ -8,16 +8,12 @@ add_filter( 'template_include', 'aep_template_include' );
 function aep_template_include( $template ) {
 
     $post_type = 'aeprofiles';
-    $taxonomies = get_object_taxonomies($post_type);
-    $queried_tax = get_query_var('taxonomy');
 
-    foreach ($taxonomies as $post_type_tax) {
-        if ($queried_tax == $post_type_tax) {
-            if ( file_exists(get_stylesheet_directory() . '/archive-' . $post_type . '.php' ) ) {
-                return $template;
-            } else {
-                return dirname( __FILE__ ) . '/views/archive-' . $post_type . '.php';
-            }
+    if ( ae_is_taxonomy_of($post_type) ) {
+        if ( file_exists(get_stylesheet_directory() . '/archive-' . $post_type . '.php' ) ) {
+            return get_stylesheet_directory() . '/archive-' . $post_type . '.php';
+        } else {
+            return dirname( __FILE__ ) . '/views/archive-' . $post_type . '.php';
         }
     }
 
