@@ -15,17 +15,23 @@ function add_body_class( $classes ) {
 function agent_directory_archive_loop() {
 ?>
 
-	<script>
-	jQuery(document).ready(function($) {
-		$('div.agent-wrap:even').addClass('even');
-	});
-	</script>
+	<div class="responsive-wrap">
 
 	<h1 class="entry-title">Our Agents</h1>
 
-	<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+	<?php
+	?>
 
-	<div class="agent-wrap">
+	<?php
+
+	if ( have_posts() ) : while ( have_posts() ) : the_post();
+
+	// starting at 0
+	$class = ( $class == 'even' ) ? 'odd' : 'even';
+
+	?>
+
+	<div class="agent-wrap <?php echo $class; ?>">
 		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image() ); ?>
 		<div class="agent-details vcard">
 		<?php
@@ -42,6 +48,8 @@ function agent_directory_archive_loop() {
 	<?php endwhile; genesis_posts_nav(); else: ?>
 	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	<?php endif;
+
+	echo '</div><!-- .page -->';
 }
 
 genesis();
