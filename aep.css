@@ -76,7 +76,7 @@
 
 
 .single-aeprofiles .agent-wrap img,
-.archive-aeprofiles img {
+.archive-aeprofiles .agent-wrap img {
 	float: left;
 	-moz-box-shadow: 2px 2px 3px #DDD;
 	-webkit-box-shadow: 2px 2px 3px #DDD;
