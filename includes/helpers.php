@@ -97,47 +97,6 @@ function ae_is_taxonomy_of($post_type) {
 	return false;
 }
 
-function agentevo_bootstrap_carousel($category='Slider', $post_count=3, $wrap_id='tbsCarousel', $nav = array('next' => '&rsaquo;', 'prev' => '&lsaquo;') ) {
-
-	global $post;
-
-	$id = get_cat_ID($category);
-
-	$args = array(
-		'numberposts'   => $post_count,
-		'category'      => $id
-	);
-
-	$slider_posts = get_posts($args);
-
-	$items = '';
-	$count = 0;
-
-	foreach( $slider_posts as $post ) {
-
-		$count++;
-
-		$class = ( $count == 1 ) ? 'item active' : 'item';
-
-		$items .= sprintf(
-			'<div class="%s">%s<div class="carousel-caption"><h4>%s</h4><p>%s</p></div><!-- .carousel-caption --></div><!-- .item -->',
-			$class, get_the_post_thumbnail($post->ID,"slider"), get_the_title($post->ID), $post->post_excerpt
-		);
-	}
-
-	$toggle = sprintf(
-		'<a class="carousel-control left" href="#%1$s" data-slide="prev">%2$s</a><a class="carousel-control right" href="#%1$s" data-slide="next">%3$s</a>',
-		$wrap_id, $nav['prev'], $nav['next']
-	);
-
-	$carousel = sprintf(
-		'<div id="%1$s" class="carousel slide"><div class="carousel-inner">%2$s</div><!-- .carousel-inner -->%3$s</div><!-- #%1$s -->',
-		$wrap_id, $items, $toggle
-	);
-
-	return $carousel;
-}
-
 function agentevo_linked_title() {
 	return sprintf('<a href="%s">%s</a>', get_permalink(), get_the_title());
 }

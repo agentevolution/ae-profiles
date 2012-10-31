@@ -96,7 +96,7 @@ class Agent_Directory {
 		$args = apply_filters( 'agent_directory_post_type_args',
 			array(
 				'labels' => array(
-					'name'					=> __( 'Agent Directory', 'aep' ),
+					'name'					=> __( 'Agent Profiles', 'aep' ),
 					'singular_name'			=> __( 'Agent', 'aep' ),
 					'add_new'				=> __( 'Add New', 'aep' ),
 					'add_new_item'			=> __( 'Add New Agent', 'aep' ),
@@ -172,7 +172,7 @@ class Agent_Directory {
 	}
 
 	/**
-	 * Filters the columns in the "Agent Directory" screen, define our own.
+	 * Filters the columns in the "Agent Profiles" screen, define our own.
 	 */
 	function columns_filter ( $columns ) {
 
@@ -188,7 +188,7 @@ class Agent_Directory {
 	}
 
 	/**
-	 * Filters the data that shows up in the columns in the "Agent Directory" screen, define our own.
+	 * Filters the data that shows up in the columns in the "Agent Profiles" screen, define our own.
 	 */
 	function columns_data( $column ) {
 

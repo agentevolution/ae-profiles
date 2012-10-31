@@ -1,21 +1,21 @@
-=== Agent Evolution Profiles ===
-Contributors:
+=== Agent Profiles ===
+Contributors: jtallant
 Tags: real estate, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.2.1
 Stable tag: 0.1.3
 
-This plugin plugin creates an agent directory for genesis.
+This plugin plugin creates an agent profiles for genesis.
 
 == Description ==
 
-The Agent Evolution Profiles plugin uses custom post types and templates to create an agent directory management system for Genesis Themes.
+The Agent Profiles plugin uses custom post types and templates to create an agent profiles management system for Genesis Themes.
 
 == Installation ==
 
 1. Upload the entire `ae-profiles` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Start entering agents into the agent directory.
+3. Start entering agents into the agent profiles.
 
 == Frequently Asked Questions ==
 

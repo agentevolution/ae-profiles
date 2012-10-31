@@ -1,10 +1,10 @@
 <?php
 /*
-	Plugin Name: Agent Evolution Profiles
+	Plugin Name: Agent Profiles
 	Plugin URI: http://www.agentevolution.com
-	Description: Adds an agent directory post type and custom templates
-	Author: Justin Tallant
-	Author URI: http://www.justintallant.com
+	Description: Adds an agent profiles post type and custom templates
+	Author: jtallant
+	Author URI: http://agentevolution.com
 
 	Version: 0.1.3
 
@@ -38,7 +38,7 @@ function ae_profiles_activation() {
 
 add_action( 'after_setup_theme', 'agent_profiles_init' );
 /**
- * Initialize Agent Directory.
+ * Initialize Agent Profiles.
  *
  * Include the libraries, define global variables, instantiate the classes.
  *
