@@ -76,7 +76,7 @@ function agent_profiles_init() {
 			$options['stylesheet_load'] = 0;
 		}
 
-		if ( 1 == $options['stylesheet_load'] ) {
+		if ( 1 == $options['stylesheet_load'] || 1 == get_option('use_agentevo_theme_css') ) {
 			return;
 		}
 

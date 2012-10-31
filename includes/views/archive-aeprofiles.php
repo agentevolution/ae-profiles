@@ -25,12 +25,12 @@ function agent_directory_archive_loop() {
 	if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 	// starting at 0
-	$class = ( $class == 'even' ) ? 'odd' : 'even';
+	$class = ( $class == 'first' ) ? '' : 'first';
 
 	?>
 
-	<div class="agent-wrap <?php echo $class; ?>">
-		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image() ); ?>
+	<div class="agent-wrap one-half <?php echo $class; ?>">
+		<?php printf('<a href="%s" class="">%s</a>', get_permalink(), agentevo_image() ); ?>
 		<div class="agent-details vcard">
 		<?php
 
@@ -47,7 +47,7 @@ function agent_directory_archive_loop() {
 	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	<?php endif;
 
-	echo '</div><!-- .page -->';
+	echo '</div><!-- .responsive-wrap -->';
 }
 
 genesis();

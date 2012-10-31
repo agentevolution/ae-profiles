@@ -40,7 +40,7 @@ function agentevo_image($size="thumbnail") {
 	if ( genesis_get_image( array( 'size' => $size ) ) ) {
 		return genesis_get_image( array( 'size' => $size, 'attr' => array('class' => 'size-' . $size) ) );
 	} else {
-		return '<img class="thumbnail" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
+		return '<img class="thumbnail no-prev" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
 	}
 }
 
@@ -79,11 +79,11 @@ function agentevo_get_image($pid, $size="thumbnail") {
 
 	// return the s3 hosted default thumbnail if the dimenions of the custom image size match available default thumb dimensions
 	if ( in_array($dimensions, array('-150x150', '-300x300', '-640x640')) ) {
-		return '<img class="thumbnail" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
+		return '<img class="thumbnail no-prev" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
 	}
 
 	// return the default thumbnail and size it with css according to the dimensions
-	return '<img class="thumbnail" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb-300x300.png" alt="no preview available" style="width:' . $custom_size_width . 'px; height:' . $custom_size_height . 'px;" />';
+	return '<img class="thumbnail no-prev" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb-300x300.png" alt="no preview available" style="width:' . $custom_size_width . 'px; height:' . $custom_size_height . 'px;" />';
 }
 
 /**

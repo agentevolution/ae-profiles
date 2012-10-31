@@ -8,9 +8,9 @@
 class AgentEvolution_Profiles_Widget extends WP_Widget {
 
 	function AgentEvolution_Profiles_Widget() {
-		$widget_ops = array( 'classname' => 'featured-agent', 'description' => __( 'Display featured agent', 'aep' ) );
+		$widget_ops = array( 'classname' => 'featured-agent clearfix', 'description' => __( 'Display featured agent', 'aep' ) );
 		$control_ops = array( 'width' => 300, 'height' => 350 );
-		$this->WP_Widget( 'featured-agent', __( 'Featured Agent', 'aep' ), $widget_ops, $control_ops );
+		$this->WP_Widget( 'featured-agent', __( 'Agentevo - Featured Agent', 'aep' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
