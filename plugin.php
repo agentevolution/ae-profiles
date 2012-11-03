@@ -17,7 +17,7 @@
  * is not being used inside the agentevo framework
  */
 if ( ! defined('AGENTEVO_LIB_URL') ) {
-	register_activation_hook( __FILE__, 'ae_profiles_activation' );
+	register_activation_hook( __FILE__, 'agent_profiles_activation' );
 }
 
 /**
@@ -25,15 +25,32 @@ if ( ! defined('AGENTEVO_LIB_URL') ) {
  *
  * @since 0.1.0
  */
-function ae_profiles_activation() {
+function agent_profiles_activation() {
 
-	if ( 'genesis' != basename( get_template_directory() ) ) {
-        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
+	if ( agent_profiles_maybe_deactivate() ) {
 		wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
 	}
 
 	global $wp_rewrite;
 	$wp_rewrite->flush_rules();
+}
+
+add_action('switch_theme', 'agent_profiles_maybe_deactivate');
+/**
+ * Deactivates the ae-profiles plugin if genesis is not installed
+ *
+ * @return bool true if deactivated
+ */
+function agent_profiles_maybe_deactivate() {
+
+	if ( 'genesis' != basename( get_template_directory() ) && is_dir( plugin_dir_path( __FILE__ ) ) ) {
+
+        deactivate_plugins( plugin_basename( __FILE__ ) );
+
+        return true;
+	}
+
+	return false;
 }
 
 add_action( 'after_setup_theme', 'agent_profiles_init' );
@@ -48,11 +65,6 @@ function agent_profiles_init() {
 
 	/** Do nothing if a Genesis child theme isn't active */
 	if ( ! function_exists( 'genesis_get_option' ) ) {
-
-		if ( is_dir(plugin_dir_url( __FILE__ )) ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-		}
-
 		return;
 	}
 
