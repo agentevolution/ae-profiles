@@ -36,7 +36,7 @@ function aep_template_include( $template ) {
     return $template;
 }
 
-function do_agent_details() {
+function aep_do_agent_details() {
 
     $output = '';
 
@@ -75,7 +75,7 @@ function do_agent_details() {
     return $output;
 }
 
-function do_agent_social() {
+function aep_do_agent_social() {
 
     if (genesis_get_custom_field('_agent_facebook') != '' || genesis_get_custom_field('_agent_twitter') != '' || genesis_get_custom_field('_agent_linkedin') != '') {
 

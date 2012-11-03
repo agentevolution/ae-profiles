@@ -2,8 +2,9 @@
 /**
  * This widget displays a featured agent.
  *
- * @since 2.0
  * @author Justin Tallant
+ * @package plugins
+ * @subpackage agent_profiles
  */
 class AgentEvolution_Profiles_Widget extends WP_Widget {
 
@@ -49,8 +50,8 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 					echo '<div class="widget-agent-wrap">';
 
 				echo '<a href="' . get_permalink() . '">' . agentevo_image() . '</a>';
-				echo '<div class="widget-agent-details">' . do_agent_details() . '</div>';
-				echo do_agent_social();
+				echo '<div class="widget-agent-details">' . aep_do_agent_details() . '</div>';
+				echo aep_do_agent_social();
 
 				if ( $instance['show_all'] == 1 )
 					echo '</div><!-- .widget-agent-wrap -->';

@@ -36,8 +36,8 @@ function agent_directory_archive_loop() {
 
 		printf('<p><a class="fn" href="%s">%s</a></p>', get_permalink(), get_the_title() );
 
-		echo do_agent_details();
-		echo do_agent_social();
+		echo aep_do_agent_details();
+		echo aep_do_agent_social();
 
 		?>
 		</div><!-- .agent-details -->

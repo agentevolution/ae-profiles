@@ -1,6 +1,9 @@
 <?php
 /**
  * This file contains the Agent_Directory class.
+ *
+ * @package plugins
+ * @subpackage @agent_profiles
  */
 
 /**
@@ -28,17 +31,17 @@ class Agent_Directory {
 
 		$this->agent_details = apply_filters( 'agent_directory_details', array(
 			'col1' => array(
-			    __( 'Title:', 'aep' ) 			=> '_agent_title',
-			    __( 'Phone:', 'aep' ) 			=> '_agent_phone',
-			    __( 'Email:', 'aep' )			=> '_agent_email',
-			    __( 'Address:', 'aep' ) 		=> '_agent_address',
-				__( 'City:', 'aep' )			=> '_agent_city',
-				__( 'State:', 'aep' )			=> '_agent_state'
+			    __( 'Title:', 'aep' )           => '_agent_title',
+			    __( 'Phone:', 'aep' )           => '_agent_phone',
+			    __( 'Email:', 'aep' )           => '_agent_email',
+			    __( 'Address:', 'aep' )         => '_agent_address',
+				__( 'City:', 'aep' )            => '_agent_city',
+				__( 'State:', 'aep' )           => '_agent_state'
 			),
 			'col2' => array(
-			    __( 'Facebook URL:', 'apl' ) 		=> '_agent_facebook',
-			    __( 'Twitter URL:', 'apl' )			=> '_agent_twitter',
-				__( 'LinkedIn URL:', 'apl' )		=> '_agent_linkedin'
+			    __( 'Facebook URL:', 'aep' )    => '_agent_facebook',
+			    __( 'Twitter URL:', 'aep' )     => '_agent_twitter',
+				__( 'LinkedIn URL:', 'aep' )    => '_agent_linkedin'
 			),
 		) );
 
@@ -48,7 +51,7 @@ class Agent_Directory {
 		add_action( 'manage_posts_custom_column', array( $this, 'columns_data' ) );
 
 		add_action( 'admin_menu', array( $this, 'register_meta_boxes' ), 5 );
-		add_action( 'save_post', array( $this, 'metabox_save' ), 1, 2 );
+		add_action( 'save_post',  array( $this, 'metabox_save' ), 1, 2 );
 
 		add_action( 'admin_init', array( &$this, 'register_settings' ) );
 		add_action( 'admin_init', array( &$this, 'add_options' ) );
@@ -128,11 +131,11 @@ class Agent_Directory {
 	}
 
 	function agent_details_metabox() {
-		include( dirname( __FILE__ ) . '/views/agent-details-metabox.php' );
+		include_once dirname( __FILE__ ) . '/views/agent-details-metabox.php';
 	}
 
 	function agentevo_metabox() {
-		include( dirname( __FILE__ ) . '/views/agentevo-metabox.php' );
+		include_once dirname( __FILE__ ) . '/views/agentevo-metabox.php';
 	}
 
 

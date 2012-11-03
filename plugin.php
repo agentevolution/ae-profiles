@@ -12,27 +12,33 @@
 	License URI: http://www.opensource.org/licenses/gpl-license.php
 */
 
-register_activation_hook( __FILE__, 'ae_profiles_activation' );
 /**
- * This function runs on plugin activation. It checks to make sure the Genesis
- * and AgentEvo frameworks are installed. If not, it deactivates itself.
+ * Registers the activation hook if the plugin
+ * is not being used inside the agentevo framework
+ */
+if ( ! defined('AGENTEVO_LIB_URL') ) {
+	register_activation_hook( __FILE__, 'ae_profiles_activation' );
+}
+
+/**
+ * Initiliazes the post type
  *
  * @since 0.1.0
  */
 function ae_profiles_activation() {
 
-		if ( 'genesis' != basename( get_template_directory() ) ) {
-	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
-		}
+	if ( 'genesis' != basename( get_template_directory() ) ) {
+        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
+		wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
+	}
 
-		/** Flush rewrite rules */
-		if ( ! post_type_exists( 'aeprofiles' ) ) {
-			agent_profiles_init();
-			global $_agent_directory;
-			$_agent_directory->create_post_type();
-		}
-		flush_rewrite_rules();
+	if ( ! post_type_exists( 'aeprofiles' ) ) {
+		agent_profiles_init();
+		global $_agent_directory;
+		$_agent_directory->create_post_type();
+	}
+
+	flush_rewrite_rules();
 
 }
 
