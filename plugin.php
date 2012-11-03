@@ -32,14 +32,8 @@ function ae_profiles_activation() {
 		wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
 	}
 
-	if ( ! post_type_exists( 'aeprofiles' ) ) {
-		agent_profiles_init();
-		global $_agent_directory;
-		$_agent_directory->create_post_type();
-	}
-
-	flush_rewrite_rules();
-
+	global $wp_rewrite;
+	$wp_rewrite->flush_rules();
 }
 
 add_action( 'after_setup_theme', 'agent_profiles_init' );
@@ -53,16 +47,27 @@ add_action( 'after_setup_theme', 'agent_profiles_init' );
 function agent_profiles_init() {
 
 	/** Do nothing if a Genesis child theme isn't active */
-	if ( ! function_exists( 'genesis_get_option' ) )
-		return;
+	if ( ! function_exists( 'genesis_get_option' ) ) {
 
-	if ( ! function_exists( 'agentevo_image' ) )
+		if ( is_dir(plugin_dir_url( __FILE__ )) ) {
+			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
+		}
+
+		return;
+	}
+
+	/** Require the agentevo helper functions if they aren't available */
+	if ( ! function_exists( 'agentevo_image' ) ) {
 		require_once dirname( __FILE__ ) . '/includes/helpers.php';
+	}
 
 	global $_agent_directory;
 
-	define( 'AEP_URL', plugin_dir_url( __FILE__ ) );
-	define( 'AEP_VERSION', '0.1.3' );
+	if ( ! defined('AGENTEVO_LIB_URL') ) {
+		define( 'AEP_URL', plugin_dir_url( __FILE__ ) );	
+	} else {
+		define( 'AEP_URL', AGENTEVO_LIB_URL . '/plugins/ae-profiles/' );
+	}
 
 	/** Loads textdomain for translation */
 	load_plugin_textdomain( 'aep', false, basename( dirname( __FILE__ ) ) . '/languages/' );
@@ -87,10 +92,9 @@ function agent_profiles_init() {
 		}
 
         $aep_css_path = AEP_URL . 'aep.css';
-        if ( file_exists(dirname( __FILE__ ) . '/aep.css') ) {
-            wp_register_style('agent-profiles', $aep_css_path);
-            wp_enqueue_style('agent-profiles');
-        }
+
+        wp_register_style('agent-profiles', $aep_css_path);
+        wp_enqueue_style('agent-profiles');
     }
 
     add_action( 'widgets_init', 'register_agent_directory_widget' );
@@ -105,5 +109,4 @@ function agent_profiles_init() {
 	/**
 	 * @todo add localization, create localization file.
 	 */
-
 }
