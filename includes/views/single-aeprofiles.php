@@ -13,8 +13,8 @@ function agent_post_content() { ?>
 		<?php echo agentevo_image($size='agent-profile-photo'); ?>
 		<div class="agent-details vcard">
 			<span class="fn" style="display:none;"><?php the_title(); ?></span>
-			<?php echo aep_do_agent_details(); ?>
-			<?php echo aep_do_agent_social(); ?>
+			<?php echo do_agent_details(); ?>
+			<?php echo do_agent_social(); ?>
 		</div> <!-- .agent-details -->
 	</div> <!-- .agent-wrap -->
 

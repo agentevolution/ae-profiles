@@ -1,50 +1,35 @@
-/* Agent Profiles
------------------------------------------------------------- */
+/* ====== Structure ====== */
 
-/** For modern browsers */
-.clearfix:before,
-.clearfix:after {
-    content: " ";
-    display: table;
-}
-
-<<<<<<< HEAD
 .archive-aeprofiles .agent-wrap {
 	float: right;
 	clear: right;
 	width: auto;
 	margin: 0 0 70px;
 	width: 47%;
-=======
-.clearfix:after {
-    clear: both;
->>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
 }
 
-/**
- * For IE 6/7 only
- * Include this rule to trigger hasLayout and contain floats.
- */
-.clearfix {
-    *zoom: 1;
+.archive-aeprofiles .agent-wrap.even {
+	border: 0;
+	float: left;
+	clear: left;
 }
 
 .agent-details {
-	display: inline-block;
-	vertical-align: top;
+	float: left;
 	position: relative;
 	height: 160px;
 }
 
-.agent-details .type, .featured-agent .type {
-	display: none;
+.single-aeprofiles .agent-details,
+.archive-aeprofiles .agent-details {
+	position: relative;
+	height: 160px;
 }
 
 .agent-social-profiles {
 	margin-top: 10px;
 }
 
-<<<<<<< HEAD
 .single-aeprofiles .agent-bio {
 	clear: both;
 	padding-top: 30px;
@@ -77,8 +62,6 @@
 	text-decoration: none;
 }
 
-=======
->>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
 .agent-social-profiles a {
 	display: block;
 	float: left;
@@ -147,20 +130,13 @@
 .agent-social-profiles .icon-linkedin:before { content: '\e803'; } /* '' */
 
 
-.single-aeprofiles .agent-details,
-.archive-aeprofiles .agent-details {
-	position: relative;
-	height: 160px;
-}
+/* ====== Images ====== */
+
 
 .single-aeprofiles .agent-wrap img,
 .archive-aeprofiles .agent-wrap img {
-<<<<<<< HEAD
 	float: left;
 	border: 1px solid #efefef;
-=======
-	display: inline-block;
->>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
 	-moz-box-shadow: 2px 2px 3px #DDD;
 	-webkit-box-shadow: 2px 2px 3px #DDD;
 	-khtml-box-shadow: 2px 2px 3px #DDD;
@@ -168,7 +144,6 @@
 	margin-right: 20px;
 }
 
-<<<<<<< HEAD
 
 /* ====== Misc. ====== */
 
@@ -179,60 +154,10 @@
 	text-transform: capitalize;
 }
 
-=======
-.archive-aeprofiles a,
-.archive-aeprofiles a:hover,
-.single-aeprofiles .agent-details a,
-.single-aeprofiles .agent-details a:hover {
-	text-decoration: none;
-}
 
-.single-aeprofiles .agent-bio {
-	clear: both; padding-top: 30px;
-}
+/* ====== Widget ====== */
 
-.single-aeprofiles .agent-details p {
-	font-size: 1em;
-	line-height: 100%;
-	padding-bottom: 16px;
-}
-
-.single-aeprofiles p.title {
-	font-weight: bold;
-}
-
-.archive-aeprofiles .agent-wrap {
-	margin-bottom: 70px;
-}
-
-.archive-aeprofiles a.fn {
-	font-size: 1.5em;
-	margin-bottom: 10px;
-	display: block;
-}
-
-.archive-aeprofiles h1.entry-title {
-	margin-bottom: 25px;
-}
-
-@media (max-width: 767px) {
-	.archive-aeprofiles .agent-wrap {
-		clear: both;
-		padding-left: 0;
-	}
-
-	.responsive-wrap {
-		max-width: 96%;
-		margin: 0 auto;
-	}
-}
->>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
-
-
-/* Featured Agent Widget
------------------------------------------------------------- */
-
-.featured-agent img {
+.widget.featured-agent img {
 	float: left;
 	clear: left;
 	width: 80px;
@@ -246,16 +171,12 @@
 	box-shadow: 2px 2px 3px #DDD;
 }
 
-.featured-agent .no-prev {
-	border: 1px solid #ddd;
-}
-
-.featured-agent p {
+.widget.featured-agent p {
 	font-size: 1em;
 	line-height: 170%;
 }
 
-.featured-agent .agent-social-profiles {
+.widget.featured-agent .agent-social-profiles {
 	position: static;
 	float: left;
 	clear: both;
