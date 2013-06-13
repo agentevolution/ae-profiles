@@ -35,19 +35,24 @@ function agent_directory_archive_loop() {
 	if ( have_posts() ) : while ($profile_query->have_posts()) : $profile_query->the_post();
 
 	// starting at 0
-	$class = ( $class == 'even' ) ? 'odd' : 'even';
+	$class = ( $class == 'first' ) ? '' : 'first';
 
 	?>
 
+<<<<<<< HEAD
 	<div class="agent-wrap <?php echo $class; ?>">
 		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image($size='agent-profile-photo') ); ?>
+=======
+	<div class="agent-wrap one-half <?php echo $class; ?>">
+		<?php printf('<a href="%s" class="">%s</a>', get_permalink(), agentevo_image() ); ?>
+>>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
 		<div class="agent-details vcard">
 		<?php
 
 		printf('<p><a class="fn" href="%s">%s</a></p>', get_permalink(), get_the_title() );
 
-		echo do_agent_details();
-		echo do_agent_social();
+		echo aep_do_agent_details();
+		echo aep_do_agent_social();
 
 		?>
 		</div><!-- .agent-details -->
@@ -57,7 +62,7 @@ function agent_directory_archive_loop() {
 	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	<?php endif;
 
-	echo '</div><!-- .page -->';
+	echo '</div><!-- .responsive-wrap -->';
 }
 
 genesis();

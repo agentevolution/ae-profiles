@@ -1,6 +1,9 @@
 <?php
 /**
  * This file contains the Agent_Directory class.
+ *
+ * @package plugins
+ * @subpackage @agent_profiles
  */
 
 /**
@@ -28,6 +31,7 @@ class Agent_Directory {
 
 		$this->agent_details = apply_filters( 'agent_directory_details', array(
 			'col1' => array(
+<<<<<<< HEAD
 			    __( 'Title:', 'aep' ) 			=> '_agent_title',
 			    __( 'Phone:', 'aep' ) 			=> '_agent_phone',
 			    __( 'Fax:', 'aep' ) 			=> '_agent_fax',
@@ -44,6 +48,19 @@ class Agent_Directory {
 				__( 'LinkedIn URL:', 'apl' )		=> '_agent_linkedin',
 				__( 'Google+ URL:', 'apl' )			=> '_agent_googleplus',
 				__( 'Pinterest URL:', 'apl' )		=> '_agent_pinterest'
+=======
+			    __( 'Title:', 'aep' )           => '_agent_title',
+			    __( 'Phone:', 'aep' )           => '_agent_phone',
+			    __( 'Email:', 'aep' )           => '_agent_email',
+			    __( 'Address:', 'aep' )         => '_agent_address',
+				__( 'City:', 'aep' )            => '_agent_city',
+				__( 'State:', 'aep' )           => '_agent_state'
+			),
+			'col2' => array(
+			    __( 'Facebook URL:', 'aep' )    => '_agent_facebook',
+			    __( 'Twitter URL:', 'aep' )     => '_agent_twitter',
+				__( 'LinkedIn URL:', 'aep' )    => '_agent_linkedin'
+>>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
 			),
 		) );
 
@@ -53,7 +70,7 @@ class Agent_Directory {
 		add_action( 'manage_posts_custom_column', array( $this, 'columns_data' ) );
 
 		add_action( 'admin_menu', array( $this, 'register_meta_boxes' ), 5 );
-		add_action( 'save_post', array( $this, 'metabox_save' ), 1, 2 );
+		add_action( 'save_post',  array( $this, 'metabox_save' ), 1, 2 );
 
 		add_action( 'admin_init', array( &$this, 'register_settings' ) );
 		add_action( 'admin_init', array( &$this, 'add_options' ) );
@@ -101,7 +118,7 @@ class Agent_Directory {
 		$args = apply_filters( 'agent_directory_post_type_args',
 			array(
 				'labels' => array(
-					'name'					=> __( 'Agent Directory', 'aep' ),
+					'name'					=> __( 'Agent Profiles', 'aep' ),
 					'singular_name'			=> __( 'Agent', 'aep' ),
 					'add_new'				=> __( 'Add New', 'aep' ),
 					'add_new_item'			=> __( 'Add New Agent', 'aep' ),
@@ -133,11 +150,11 @@ class Agent_Directory {
 	}
 
 	function agent_details_metabox() {
-		include( dirname( __FILE__ ) . '/views/agent-details-metabox.php' );
+		include_once dirname( __FILE__ ) . '/views/agent-details-metabox.php';
 	}
 
 	function agentevo_metabox() {
-		include( dirname( __FILE__ ) . '/views/agentevo-metabox.php' );
+		include_once dirname( __FILE__ ) . '/views/agentevo-metabox.php';
 	}
 
 
@@ -177,7 +194,7 @@ class Agent_Directory {
 	}
 
 	/**
-	 * Filters the columns in the "Agent Directory" screen, define our own.
+	 * Filters the columns in the "Agent Profiles" screen, define our own.
 	 */
 	function columns_filter ( $columns ) {
 
@@ -193,7 +210,7 @@ class Agent_Directory {
 	}
 
 	/**
-	 * Filters the data that shows up in the columns in the "Agent Directory" screen, define our own.
+	 * Filters the data that shows up in the columns in the "Agent Profiles" screen, define our own.
 	 */
 	function columns_data( $column ) {
 

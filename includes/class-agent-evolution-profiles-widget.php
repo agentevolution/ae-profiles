@@ -2,15 +2,16 @@
 /**
  * This widget displays a featured agent.
  *
- * @since 2.0
  * @author Justin Tallant
+ * @package plugins
+ * @subpackage agent_profiles
  */
 class AgentEvolution_Profiles_Widget extends WP_Widget {
 
 	function AgentEvolution_Profiles_Widget() {
-		$widget_ops = array( 'classname' => 'featured-agent', 'description' => __( 'Display featured agent', 'aep' ) );
+		$widget_ops = array( 'classname' => 'featured-agent clearfix', 'description' => __( 'Display featured agent', 'aep' ) );
 		$control_ops = array( 'width' => 300, 'height' => 350 );
-		$this->WP_Widget( 'featured-agent', __( 'Featured Agent', 'aep' ), $widget_ops, $control_ops );
+		$this->WP_Widget( 'featured-agent', __( 'Agentevo - Featured Agent', 'aep' ), $widget_ops, $control_ops );
 	}
 
 	function widget( $args, $instance ) {
@@ -50,9 +51,15 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 				if ( $instance['show_all'] == 1 )
 					echo '<div class="widget-agent-wrap">';
 
+<<<<<<< HEAD
 				echo '<a href="' . get_permalink() . '">' . agentevo_image($size='agent-profile-photo') . '</a>';
 				echo '<div class="widget-agent-details">' . do_agent_details() . '</div>';
 				echo do_agent_social();
+=======
+				echo '<a href="' . get_permalink() . '">' . agentevo_image() . '</a>';
+				echo '<div class="widget-agent-details">' . aep_do_agent_details() . '</div>';
+				echo aep_do_agent_social();
+>>>>>>> f01b1dba34ffcb50f20cee859f3b73fa4fa4e71b
 
 				if ( $instance['show_all'] == 1 )
 					echo '</div><!-- .widget-agent-wrap -->';
