@@ -3,10 +3,10 @@
 	Plugin Name: Agent Evolution Profiles
 	Plugin URI: http://www.agentevolution.com
 	Description: Adds an agent directory post type and custom templates
-	Author: Justin Tallant
-	Author URI: http://www.justintallant.com
+	Author: Agent Evolution
+	Author URI: http://www.agentevolution.com
 
-	Version: 0.1.3
+	Version: 0.9
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -23,7 +23,7 @@ function ae_profiles_activation() {
 
 		if ( 'genesis' != basename( get_template_directory() ) ) {
 	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://www.studiopress.com/themes/genesis' ) );
+			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://agentevo.com/genesis' ) );
 		}
 
 		/** Flush rewrite rules */
@@ -56,7 +56,7 @@ function agent_profiles_init() {
 	global $_agent_directory;
 
 	define( 'AEP_URL', plugin_dir_url( __FILE__ ) );
-	define( 'AEP_VERSION', '0.1.3' );
+	define( 'AEP_VERSION', '0.9' );
 
 	/** Loads textdomain for translation */
 	load_plugin_textdomain( 'aep', false, basename( dirname( __FILE__ ) ) . '/languages/' );
@@ -66,7 +66,10 @@ function agent_profiles_init() {
 	require_once( dirname( __FILE__ ) . '/includes/functions.php' );
 	require_once( dirname( __FILE__ ) . '/includes/class-agent-evolution-profiles-widget.php');
 
-	/** Enqueus style file if it exists */
+	/** Create new featured image size */
+	add_image_size( 'agent-profile-photo', 150, 200, true );
+
+	/** Enqueues style file if it exists */
 	add_action('wp_enqueue_scripts', 'add_aep_css');
 	function add_aep_css() {
 
@@ -100,4 +103,27 @@ function agent_profiles_init() {
 	 * @todo add localization, create localization file.
 	 */
 
+}
+
+/* hook updater to init */
+add_action( 'init', 'ae_profiles_updater_init' );
+
+/**
+ * Load and Activate Plugin Updater Class.
+ * @since 0.1.0
+ */
+function ae_profiles_updater_init() {
+
+    /* Load Plugin Updater */
+    require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/plugin-updater.php' );
+
+    /* Updater Config */
+    $config = array(
+        'base'         => plugin_basename( __FILE__ ), //required
+        'repo_uri'     => 'http://themes.agentevolution.com/',
+        'repo_slug'    => 'ae-profiles',
+    );
+
+    /* Load Updater Class */
+    new AE_Profiles_Plugin_Updater( $config );
 }

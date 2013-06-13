@@ -22,7 +22,17 @@ function agent_directory_archive_loop() {
 
 	$class = '';
 
-	if ( have_posts() ) : while ( have_posts() ) : the_post();
+	global $post;
+
+	$args = array(
+		'post_type'	=> 'aeprofiles',
+		'orderby'	=> 'menu_order',
+		'order'		=> 'ASC'
+	);
+
+	$profile_query = new WP_Query($args);
+
+	if ( have_posts() ) : while ($profile_query->have_posts()) : $profile_query->the_post();
 
 	// starting at 0
 	$class = ( $class == 'even' ) ? 'odd' : 'even';
@@ -30,7 +40,7 @@ function agent_directory_archive_loop() {
 	?>
 
 	<div class="agent-wrap <?php echo $class; ?>">
-		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image() ); ?>
+		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image($size='agent-profile-photo') ); ?>
 		<div class="agent-details vcard">
 		<?php
 

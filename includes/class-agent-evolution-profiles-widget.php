@@ -29,7 +29,9 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 				echo $before_title . apply_filters( 'widget_title', 'Featured Agents' , $instance, $this->id_base ) . $after_title;
 				$query_args = array(
 					'post_type'			=> 'aeprofiles',
-					'posts_per_page'	=> -1
+					'posts_per_page'	=> -1,
+					'orderby'	=> 'menu_order',
+					'order'		=> 'ASC'
 				);
 			} elseif ( !empty( $instance['post_id'] ) ) {
 				$post_id = explode( ',', $instance['post_id']);
@@ -48,7 +50,7 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 				if ( $instance['show_all'] == 1 )
 					echo '<div class="widget-agent-wrap">';
 
-				echo '<a href="' . get_permalink() . '">' . agentevo_image() . '</a>';
+				echo '<a href="' . get_permalink() . '">' . agentevo_image($size='agent-profile-photo') . '</a>';
 				echo '<div class="widget-agent-details">' . do_agent_details() . '</div>';
 				echo do_agent_social();
 

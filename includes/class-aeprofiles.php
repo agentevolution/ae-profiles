@@ -30,15 +30,20 @@ class Agent_Directory {
 			'col1' => array(
 			    __( 'Title:', 'aep' ) 			=> '_agent_title',
 			    __( 'Phone:', 'aep' ) 			=> '_agent_phone',
+			    __( 'Fax:', 'aep' ) 			=> '_agent_fax',
 			    __( 'Email:', 'aep' )			=> '_agent_email',
+			    __( 'Website (NO http://):', 'aep' )			=> '_agent_website',
 			    __( 'Address:', 'aep' ) 		=> '_agent_address',
 				__( 'City:', 'aep' )			=> '_agent_city',
-				__( 'State:', 'aep' )			=> '_agent_state'
+				__( 'State:', 'aep' )			=> '_agent_state',
+				__( 'Zip:', 'aep' )				=> '_agent_zip'
 			),
 			'col2' => array(
 			    __( 'Facebook URL:', 'apl' ) 		=> '_agent_facebook',
 			    __( 'Twitter URL:', 'apl' )			=> '_agent_twitter',
-				__( 'LinkedIn URL:', 'apl' )		=> '_agent_linkedin'
+				__( 'LinkedIn URL:', 'apl' )		=> '_agent_linkedin',
+				__( 'Google+ URL:', 'apl' )			=> '_agent_googleplus',
+				__( 'Pinterest URL:', 'apl' )		=> '_agent_pinterest'
 			),
 		) );
 
@@ -111,7 +116,7 @@ class Agent_Directory {
 				'query_var'		=> true,
 				'menu_position'	=> 7,
 				'has_archive'	=> true,
-				'supports'		=> array( 'title', 'editor', 'comments', 'thumbnail', 'genesis-seo', 'genesis-layouts', 'genesis-simple-sidebars' ),
+				'supports'		=> array( 'title', 'editor', 'comments', 'thumbnail', 'page-attributes', 'genesis-seo', 'genesis-layouts', 'genesis-simple-sidebars' ),
 				'rewrite'		=> array( 'slug' => $this->options['slug'] ),
 			)
 		);

@@ -27,7 +27,7 @@
 					<?php echo '<h4><input name="plugin_ae_profiles_settings[stylesheet_load]" type="checkbox" value="1" class="code" ' . checked(1, $aep_options['stylesheet_load'], false ) . ' /> Deregister AEP CSS?</h4>'; ?>
 
 					<?php echo '<h4>Slug of the agent directory page: <input type="text" name="plugin_ae_profiles_settings[slug]" value="' . $aep_options['slug'] . '" /></h4>'; ?>
-					<p>Don't forget to reset your permalinks if you change the slug.</p>
+					<p>Don't forget to <a href="../wp-admin/options-permalink.php">reset your permalinks</a> if you change the slug.</p>
 					<input name="submit" class="button-primary" type="submit" value="<?php esc_attr_e('Save Settings'); ?>" />
 				</form>
 				<br /><br />

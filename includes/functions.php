@@ -46,15 +46,21 @@ function do_agent_details() {
     if (genesis_get_custom_field('_agent_phone') != '')
         $output .= sprintf('<p class="tel"><span class="type">Work</span>%s</p>', genesis_get_custom_field('_agent_phone') );
 
+    if (genesis_get_custom_field('_agent_fax') != '')
+        $output .= sprintf('<p class="tel fax"><span class="type">Fax</span>: %s</p>', genesis_get_custom_field('_agent_fax') );
+
     if (genesis_get_custom_field('_agent_email') != '')
         $output .= sprintf('<p><a class="email" href="mailto:%s">%s</a></p>', genesis_get_custom_field('_agent_email'), genesis_get_custom_field('_agent_email') );
+
+    if (genesis_get_custom_field('_agent_website') != '')
+        $output .= sprintf('<p><a class="website" href="http://%s">%s</a></p>', genesis_get_custom_field('_agent_website'), genesis_get_custom_field('_agent_website') );
 
     if (genesis_get_custom_field('_agent_city') != '' || genesis_get_custom_field('_agent_address') != '' || genesis_get_custom_field('_agent_state') != '' ) {
 
         $address = '<p class="adr">';
 
         if (genesis_get_custom_field('_agent_address') != '') {
-            $address .= '<span class="street-address">' . genesis_get_custom_field('_agent_address') . '</span>, ';
+            $address .= '<span class="street-address">' . genesis_get_custom_field('_agent_address') . '</span><br />';
         }
 
         if (genesis_get_custom_field('_agent_city') != '') {
@@ -82,15 +88,23 @@ function do_agent_social() {
         $output = '<div class="agent-social-profiles">';
 
         if (genesis_get_custom_field('_agent_facebook') != '') {
-            $output .= sprintf('<a class="agent-facebook" href="%s" title="Facebook Profile"></a>', genesis_get_custom_field('_agent_facebook'));
+            $output .= sprintf('<a class="icon-facebook" href="%s" title="Facebook Profile"></a>', genesis_get_custom_field('_agent_facebook'));
         }
 
         if (genesis_get_custom_field('_agent_twitter') != '') {
-            $output .= sprintf('<a class="agent-twitter" href="%s" title="Twitter Profile"></a>', genesis_get_custom_field('_agent_twitter'));
+            $output .= sprintf('<a class="icon-twitter" href="%s" title="Twitter Profile"></a>', genesis_get_custom_field('_agent_twitter'));
         }
 
         if (genesis_get_custom_field('_agent_linkedin') != '') {
-            $output .= sprintf('<a class="agent-linkedin" href="%s" title="LinkedIn Profile"></a>', genesis_get_custom_field('_agent_linkedin'));
+            $output .= sprintf('<a class="icon-linkedin" href="%s" title="LinkedIn Profile"></a>', genesis_get_custom_field('_agent_linkedin'));
+        }
+
+        if (genesis_get_custom_field('_agent_googleplus') != '') {
+            $output .= sprintf('<a class="icon-gplus" href="%s" title="Google+ Profile"></a>', genesis_get_custom_field('_agent_googleplus'));
+        }
+
+        if (genesis_get_custom_field('_agent_pinterest') != '') {
+            $output .= sprintf('<a class="icon-pinterest" href="%s" title="Pinterest Profile"></a>', genesis_get_custom_field('_agent_pinterest'));
         }
 
         $output .= '</div><!-- .agent-social-profiles -->';

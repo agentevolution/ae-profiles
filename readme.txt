@@ -1,11 +1,11 @@
 === Agent Evolution Profiles ===
-Contributors:
+Contributors: agentevolution, davebonds, jtallant
 Tags: real estate, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
-Tested up to: 3.2.1
+Tested up to: 3.5
 Stable tag: 0.1.3
 
-This plugin plugin creates an agent directory for genesis.
+This plugin creates an real estate agent directory for genesis.
 
 == Description ==
 
@@ -22,6 +22,11 @@ The Agent Evolution Profiles plugin uses custom post types and templates to crea
 
 
 == Changelog ==
+
+= 0.9 =
+* Include icon font
+* Added new fields
+* CSS fixes
 
 = 0.1.3 =
 * Include agentevo helpers

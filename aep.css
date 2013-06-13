@@ -5,7 +5,7 @@
 	clear: right;
 	width: auto;
 	margin: 0 0 70px;
-	width: 40%;
+	width: 47%;
 }
 
 .archive-aeprofiles .agent-wrap.even {
@@ -27,22 +27,24 @@
 }
 
 .agent-social-profiles {
-	float: left;
-	clear: left;
-	position: absolute;
-	bottom: 0;
-	width: 150px;
+	margin-top: 10px;
 }
 
-.single-aeprofiles .agent-bio { clear: both; padding-top: 30px; }
+.single-aeprofiles .agent-bio {
+	clear: both;
+	padding-top: 30px;
+}
 
 .single-aeprofiles .agent-details p {
 	font-size: 1em;
-	line-height: 100%;
-	padding-bottom: 16px;
+	line-height: 150%;
+	padding-bottom: 5px;
 }
 
-.single-aeprofiles p.title { font-weight: bold; }
+.single-aeprofiles p.title {
+	font-weight: bold;
+}
+
 
 /* ====== Hyperlinks ====== */
 
@@ -62,15 +64,71 @@
 
 .agent-social-profiles a {
 	display: block;
-	width: 32px;
-	height: 32px;
 	float: left;
-	margin-right: 15px;
+	margin-right: 10px;
+	font-size: 24px;
 }
 
-.agent-social-profiles .agent-facebook { background: url(images/fb.png); }
-.agent-social-profiles .agent-twitter { background: url(images/twitter.png); }
-.agent-social-profiles .agent-linkedin { background: url(images/linkedin.png); }
+
+/* ====== Icon font ====== */
+@font-face {
+  font-family: 'fontello';
+  src: url('icons/fontello.eot?50594400');
+  src: url('icons/fontello.eot?50594400#iefix') format('embedded-opentype'),
+       url('icons/fontello.woff?50594400') format('woff'),
+       url('icons/fontello.ttf?50594400') format('truetype'),
+       url('icons/fontello.svg?50594400#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/fontello.svg?50594400#fontello') format('svg');
+  }
+}
+*/
+ 
+ [class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+ 
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-right: .2em;
+  text-align: center;
+  /* opacity: .8; */
+ 
+  /* For safety - reset parent styles, that can break glyph codes*/
+  font-variant: normal;
+  text-transform: none;
+     
+  /* fix buttons height, for twitter bootstrap */
+  line-height: 1em;
+ 
+  /* Animation center compensation - margins should be symmetric */
+  /* remove if not needed */
+  margin-left: .2em;
+ 
+  /* you can be more comfortable with increased icons size */
+  /* font-size: 120%; */
+ 
+  /* Uncomment for 3D effect */
+  /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+ 
+.agent-social-profiles .icon-gplus:before { content: '\e801'; } /* '' */
+.agent-social-profiles .icon-pinterest:before { content: '\e804'; } /* '' */
+.agent-social-profiles .icon-facebook:before { content: '\e800'; } /* '' */
+.agent-social-profiles .icon-twitter:before { content: '\e802'; } /* '' */
+.agent-social-profiles .icon-linkedin:before { content: '\e803'; } /* '' */
+
 
 /* ====== Images ====== */
 
@@ -78,19 +136,24 @@
 .single-aeprofiles .agent-wrap img,
 .archive-aeprofiles .agent-wrap img {
 	float: left;
+	border: 1px solid #efefef;
 	-moz-box-shadow: 2px 2px 3px #DDD;
 	-webkit-box-shadow: 2px 2px 3px #DDD;
 	-khtml-box-shadow: 2px 2px 3px #DDD;
 	box-shadow: 2px 2px 3px #DDD;
 	margin-right: 20px;
-	width: 170px;
-	height: 170px;
 }
+
 
 /* ====== Misc. ====== */
 
 .agent-details .type, .featured-agent .type {display: none;}
-.archive-aeprofiles h1.entry-title { margin-bottom: 25px; }
+.agent-details .fax .type, .featured-agent .fax .type { display: inline-block; }
+.archive-aeprofiles h1.entry-title {
+	margin-bottom: 25px;
+	text-transform: capitalize;
+}
+
 
 /* ====== Widget ====== */
 
@@ -98,10 +161,14 @@
 	float: left;
 	clear: left;
 	width: 80px;
-	height: 80px;
-	margin-right: 15px;
-	margin-bottom: 15px;
-	border: 2px solid #fff;
+	height: auto;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #efefef;
+	-moz-box-shadow: 2px 2px 3px #DDD;
+	-webkit-box-shadow: 2px 2px 3px #DDD;
+	-khtml-box-shadow: 2px 2px 3px #DDD;
+	box-shadow: 2px 2px 3px #DDD;
 }
 
 .widget.featured-agent p {
