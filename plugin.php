@@ -1,12 +1,12 @@
 <?php
 /*
-	Plugin Name: Agent Evolution Profiles
+	Plugin Name: Genesis Agent Profiles
 	Plugin URI: http://www.agentevolution.com
 	Description: Adds an agent directory post type and custom templates
 	Author: Agent Evolution
 	Author URI: http://www.agentevolution.com
 
-	Version: 0.9
+	Version: 0.9.1
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php

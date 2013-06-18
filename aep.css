@@ -35,6 +35,12 @@
 	padding-top: 30px;
 }
 
+.archive-aeprofiles .agent-details p {
+	font-size: 1em;
+	line-height: 150%;
+	padding: 0;
+}
+
 .single-aeprofiles .agent-details p {
 	font-size: 1em;
 	line-height: 150%;
@@ -154,6 +160,7 @@
 	text-transform: capitalize;
 }
 
+.single-aeprofiles .backstretch {display: none;} /* Stop backstretch.js from displaying agent profile photo as background */
 
 /* ====== Widget ====== */
 
