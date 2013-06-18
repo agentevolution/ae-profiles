@@ -53,7 +53,12 @@ function agent_directory_archive_loop() {
 		</div><!-- .agent-details -->
 	</div> <!-- .agent-wrap -->
 
-	<?php endwhile; genesis_posts_nav(); else: ?>
+	<?php endwhile;
+	
+	genesis_posts_nav();
+
+	else: ?>
+	
 	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	<?php endif;
 
