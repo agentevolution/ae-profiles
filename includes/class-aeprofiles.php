@@ -29,6 +29,8 @@ class Agent_Directory {
 		$this->agent_details = apply_filters( 'agent_directory_details', array(
 			'col1' => array(
 			    __( 'Title:', 'aep' ) 			=> '_agent_title',
+			    __( 'License #:', 'aep' ) 		=> '_agent_license',
+			    __( 'Designations:', 'aep' ) 	=> '_agent_designations',
 			    __( 'Phone:', 'aep' ) 			=> '_agent_phone',
 			    __( 'Fax:', 'aep' ) 			=> '_agent_fax',
 			    __( 'Email:', 'aep' )			=> '_agent_email',

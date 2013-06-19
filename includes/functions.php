@@ -42,6 +42,12 @@ function do_agent_details() {
 
     if (genesis_get_custom_field('_agent_title') != '')
         $output .= sprintf('<p class="title">%s</p>', genesis_get_custom_field('_agent_title') );
+    
+    if (genesis_get_custom_field('_agent_license') != '')
+        $output .= sprintf('<p class="license">%s</p>', genesis_get_custom_field('_agent_license') );
+
+    if (genesis_get_custom_field('_agent_designations') != '')
+        $output .= sprintf('<p class="title">%s</p>', genesis_get_custom_field('_agent_designations') );
 
     if (genesis_get_custom_field('_agent_phone') != '')
         $output .= sprintf('<p class="tel"><span class="type">Work</span>%s</p>', genesis_get_custom_field('_agent_phone') );

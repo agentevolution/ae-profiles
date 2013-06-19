@@ -66,7 +66,9 @@
 .archive-aeprofiles a,
 .archive-aeprofiles a:hover,
 .single-aeprofiles .agent-details a,
-.single-aeprofiles .agent-details a:hover {
+.single-aeprofiles .agent-details a:hover,
+.agent-social-profiles a:hover,
+.agent-social-profiles a:active {
 	text-decoration: none;
 }
 
@@ -155,6 +157,7 @@
 
 /* ====== Misc. ====== */
 
+.featured-agent .widget-wrap {overflow: hidden;}
 .agent-details .type, .featured-agent .type {display: none;}
 .agent-details .fax .type, .featured-agent .fax .type { display: inline-block; }
 .archive-aeprofiles h1.entry-title {
@@ -185,6 +188,8 @@
 .widget.featured-agent p {
 	font-size: 1em;
 	line-height: 170%;
+	padding: 0;
+	margin: 0;
 }
 
 .widget.featured-agent .agent-social-profiles {
