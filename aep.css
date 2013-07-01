@@ -102,7 +102,7 @@
 }
 */
  
- [class^="icon-"]:before, [class*=" icon-"]:before {
+ .agent-social-profiles [class^="icon-"]:before, .agent-social-profiles [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
   font-weight: normal;
