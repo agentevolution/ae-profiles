@@ -1,6 +1,6 @@
 <div id="icon-options-general" class="icon32"></div>
 <div class="wrap">
-	<h2>Agent Evolution Profiles Settings</h2>
+	<h2>Genesis Agent Profiles Settings</h2>
 	<div id="poststuff" class="metabox-holder has-right-sidebar">
 		<div id="side-info-column" class="inner-sidebar">
 		<?php do_meta_boxes('aep-options', 'side', null); ?>
@@ -8,7 +8,7 @@
 
         <div id="post-body">
             <div id="post-body-content" class="has-sidebar-content">
-				<p>If you would like to move the AEP CSS to your theme's css file for purposes of avoiding an additional HTTP request or for ease of customization, check the box below.</p>
+				<p>If you would like to move the plugin's CSS to your theme's css file for purposes of avoiding an additional HTTP request or for ease of customization, check the box below.</p>
 				<?php
 
 				$aep_options = get_option('plugin_ae_profiles_settings');

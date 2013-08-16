@@ -130,7 +130,7 @@ class Agent_Directory {
 	function register_meta_boxes() {
 
 		add_meta_box( 'agent_details_metabox', __( 'Agent Details', 'aep' ), array( &$this, 'agent_details_metabox' ), 'aeprofiles', 'normal', 'high' );
-		add_meta_box( 'agentevo_metabox', __( 'Agent Evolution', 'aep' ), array( &$this, 'agentevo_metabox' ), 'aep-options', 'side', 'core' );
+		add_meta_box( 'agentevo_metabox', __( 'Themes by Agent Evolution', 'aep' ), array( &$this, 'agentevo_metabox' ), 'aep-options', 'side', 'core' );
 
 	}
 

@@ -1,4 +1,4 @@
-=== Agent Evolution Profiles ===
+=== Genesis Agent Profiles ===
 Contributors: agentevolution, davebonds, jtallant
 Tags: real estate, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
@@ -9,7 +9,7 @@ This plugin creates an real estate agent directory for genesis.
 
 == Description ==
 
-The Agent Evolution Profiles plugin uses custom post types and templates to create an agent directory management system for Genesis Themes.
+The Genesis Agent Profiles plugin uses custom post types and templates to create an agent directory management system for Genesis Themes.
 
 == Installation ==
 
