@@ -6,7 +6,7 @@
 	Author: Agent Evolution
 	Author URI: http://www.agentevolution.com
 
-	Version: 0.9.3
+	Version: 0.9.1
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -23,7 +23,7 @@ function ae_profiles_activation() {
 
 		if ( 'genesis' != basename( get_template_directory() ) ) {
 	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://agentevo.com/genesis' ) );
+			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'aep' ), 'http://studiopress.com/genesis' ) );
 		}
 
 		/** Flush rewrite rules */
@@ -103,27 +103,4 @@ function agent_profiles_init() {
 	 * @todo add localization, create localization file.
 	 */
 
-}
-
-/* hook updater to init */
-add_action( 'init', 'ae_profiles_updater_init' );
-
-/**
- * Load and Activate Plugin Updater Class.
- * @since 0.1.0
- */
-function ae_profiles_updater_init() {
-
-    /* Load Plugin Updater */
-    require_once( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/plugin-updater.php' );
-
-    /* Updater Config */
-    $config = array(
-        'base'         => plugin_basename( __FILE__ ), //required
-        'repo_uri'     => 'http://themes.agentevolution.com/',
-        'repo_slug'    => 'ae-profiles',
-    );
-
-    /* Load Updater Class */
-    new AE_Profiles_Plugin_Updater( $config );
 }

@@ -1,19 +1,19 @@
 === Genesis Agent Profiles ===
-Contributors: agentevolution, davebonds, jtallant
+Contributors: agentevolution, davebonds
 Tags: real estate, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
-Tested up to: 3.5
-Stable tag: 0.1.3
+Tested up to: 3.6
+Stable tag: 0.9.1
 
-This plugin creates an real estate agent directory for genesis.
+This plugin creates a real estate agent directory for Genesis child themes.
 
 == Description ==
 
-The Genesis Agent Profiles plugin uses custom post types and templates to create an agent directory management system for Genesis Themes.
+The Genesis Agent Profiles plugin uses custom post types and templates to create a real estate agent directory management system for Genesis child themes. Includes sidebar widget to display a featured agent.
 
 == Installation ==
 
-1. Upload the entire `ae-profiles` folder to the `/wp-content/plugins/` directory
+1. Upload the entire `genesis-agent-profiles` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Start entering agents into the agent directory.
 
@@ -23,10 +23,15 @@ The Genesis Agent Profiles plugin uses custom post types and templates to create
 
 == Changelog ==
 
+= 0.9.1 =
+* Update default thumbnail URL's to S3
+* Remove affiliate link
+
 = 0.9 =
 * Include icon font
 * Added new fields
 * CSS fixes
+* Genesis 2.0 compatibility
 
 = 0.1.3 =
 * Include agentevo helpers

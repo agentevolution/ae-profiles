@@ -16,7 +16,7 @@ function agentevo_image($size="thumbnail") {
 	if ( genesis_get_image( array( 'size' => $size ) ) ) {
 		return genesis_get_image( array( 'size' => $size, 'attr' => array('class' => 'size-' . $size) ) );
 	} else {
-		return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
+		return '<img class="thumbnail" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
 	}
 }
 
@@ -53,10 +53,10 @@ function agentevo_get_image($pid, $size="thumbnail") {
 	}
 
 	if ( file_exists( get_theme_root() . '/agentevo/images/default-thumb' . $dimensions . '.png' ) ) {
-		return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
+		return '<img class="thumbnail" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb' . $dimensions  . '.png" alt="no preview available" />';
 	}
 
-	return '<img class="thumbnail" src="http://agentevolution.com/ae-framework-images/default-thumb-150x150.png" alt="no preview available" style="width:' . $custom_size_width . 'px; height:' . $custom_size_height . 'px;"/>';
+	return '<img class="thumbnail" src="https://s3.amazonaws.com/ae-plugins/shared/images/default-thumb-150x150.png" alt="no preview available" style="width:' . $custom_size_width . 'px; height:' . $custom_size_height . 'px;"/>';
 }
 
 /**

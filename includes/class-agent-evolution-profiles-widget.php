@@ -3,7 +3,7 @@
  * This widget displays a featured agent.
  *
  * @since 2.0
- * @author Justin Tallant
+ * @author Agent Evolution
  */
 class AgentEvolution_Profiles_Widget extends WP_Widget {
 
@@ -51,7 +51,9 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 					echo '<div class="widget-agent-wrap">';
 
 				echo '<a href="' . get_permalink() . '">' . agentevo_image($size='agent-profile-photo') . '</a>';
-				echo '<div class="widget-agent-details">' . do_agent_details() . '</div>';
+				printf('<div class="widget-agent-details"><a class="fn" href="%s">%s</a>', get_permalink(), get_the_title() );
+				echo do_agent_details();
+				echo '</div>';
 				echo do_agent_social();
 
 				if ( $instance['show_all'] == 1 )
