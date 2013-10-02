@@ -21,10 +21,13 @@ function agent_directory_archive_loop() {
 
 	global $post;
 
+	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 	$args = array(
 		'post_type'	=> 'aeprofiles',
 		'orderby'	=> 'menu_order',
-		'order'		=> 'ASC'
+		'order'		=> 'ASC',
+		'paged' => $paged
 	);
 
 	$profile_query = new WP_Query($args);

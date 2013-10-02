@@ -81,7 +81,7 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 		echo '<label for="' . $this->get_field_id( 'post_id' ) . '">Select an Agent or check the box to show all:</label>';
 		echo '<select id="' . $this->get_field_id( 'post_id' ) . '" name="' . $this->get_field_name( 'post_id' ) . '" class="widefat" style="width:100%;">';
 			global $post;
-			$args = array('post_type' => 'aeprofiles');
+			$args = array('post_type' => 'aeprofiles', 'posts_per_page'	=> -1);
 			$agents = get_posts($args);
 			foreach( $agents as $post ) : setup_postdata($post);
 				echo '<option style="margin-left: 8px; padding-right:10px;" value="' . $post->ID . ',' . $post->post_title . '" ' . selected( $post->ID . ',' . $post->post_title, $instance['post_id'], false ) . '>' . $post->post_title . '</option>';
