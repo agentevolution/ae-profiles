@@ -11,6 +11,8 @@ remove_action( 'genesis_after_post_content', 'agentevo_post_meta' );
 remove_action( 'genesis_entry_footer', 'agentevo_post_meta' ); // HTML5
 remove_action( 'genesis_after_post', 'genesis_get_comments_template' );
 remove_action( 'genesis_after_entry', 'genesis_get_comments_template' ); // HTML5
+remove_action( 'genesis_after_post', 'genesis_do_author_box_single' );
+remove_action( 'genesis_after_entry', 'genesis_do_author_box_single', 8 ); // HTML5
 add_action( 'genesis_post_content' , 'agent_post_content' );
 add_action( 'genesis_entry_content' , 'agent_post_content' ); // HTML5
 

@@ -3,7 +3,7 @@ Contributors: agentevolution
 Tags: real estate, agent directory, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.6
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 This plugin creates a real estate agent directory for Genesis child themes.
 
@@ -32,6 +32,9 @@ You'll find the [FAQ on agentevolution.com](http://themes.agentevolution.com/gen
 4. All agents Dashboard screen
 
 == Changelog ==
+
+= 1.0.1 =
+* Remove author box (if enabled) on single agent profiles
 
 = 1.0.1 =
 * Fix to show all agents in backend widget select
