@@ -33,7 +33,7 @@ You'll find the [FAQ on agentevolution.com](http://themes.agentevolution.com/gen
 
 == Changelog ==
 
-= 1.0.1 =
+= 1.0.2 =
 * Remove author box (if enabled) on single agent profiles
 
 = 1.0.1 =
