@@ -72,7 +72,3 @@ function ae_is_taxonomy_of($post_type) {
 
 	return false;
 }
-
-function agentevo_linked_title() {
-	return sprintf('<a href="%s">%s</a>', get_permalink(), get_the_title());
-}
