@@ -23,10 +23,12 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 
 		extract( $args );
 
+		$title = $instance['title'];
+
 		echo $before_widget;
 
 			if ( $instance['show_all'] == 1 ) {
-				echo $before_title . apply_filters( 'widget_title', 'Featured Agents' , $instance, $this->id_base ) . $after_title;
+				echo $before_title . apply_filters( 'widget_title', $title , $instance, $this->id_base ) . $after_title;
 				$query_args = array(
 					'post_type'			=> 'aeprofiles',
 					'posts_per_page'	=> -1,
@@ -67,6 +69,9 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 	}
 
 	function update( $new_instance, $old_instance ) {
+		$instance = array();
+		$instance['title']          = strip_tags( $new_instance['title'] );
+
 		return $new_instance;
 	}
 
@@ -74,9 +79,18 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 
 		$instance = wp_parse_args( $instance, array(
 			'post_id'   =>	'',
+			'title'		=>	'Featured Agents',
 			'show_all'	=>	0
-		) );
+		) ); 
+		?>
 
+		<p>
+			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php esc_attr_e( $instance['title'] ); ?>" />
+			<em>Title is only used when &quot;Show all agents&quot; is selected, otherwise the Agent name is used for the widget title.</em>
+		</p>
+
+		<?php 
 		echo '<p>';
 		echo '<label for="' . $this->get_field_id( 'post_id' ) . '">Select an Agent or check the box to show all:</label>';
 		echo '<select id="' . $this->get_field_id( 'post_id' ) . '" name="' . $this->get_field_name( 'post_id' ) . '" class="widefat" style="width:100%;">';
