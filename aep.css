@@ -23,7 +23,8 @@
 .single-aeprofiles .agent-details,
 .archive-aeprofiles .agent-details {
 	position: relative;
-	height: 160px;
+	height: auto;
+	overflow: hidden;
 }
 
 .agent-social-profiles {
