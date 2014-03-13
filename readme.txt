@@ -33,6 +33,9 @@ You'll find the [FAQ on agentevolution.com](http://themes.agentevolution.com/gen
 
 == Changelog ==
 
+= 1.0.6 =
+* Renamed icon font to prevent conflict with plugins including the same named font
+
 = 1.0.5 =
 * Remove fixed height for agent details
 
