@@ -89,7 +89,7 @@ function do_agent_details() {
 
 function do_agent_social() {
 
-    if (genesis_get_custom_field('_agent_facebook') != '' || genesis_get_custom_field('_agent_twitter') != '' || genesis_get_custom_field('_agent_linkedin') != '') {
+    if (genesis_get_custom_field('_agent_facebook') != '' || genesis_get_custom_field('_agent_twitter') != '' || genesis_get_custom_field('_agent_linkedin') != '' || genesis_get_custom_field('_agent_googleplus') != '' || genesis_get_custom_field('_agent_pinterest') != '') {
 
         $output = '<div class="agent-social-profiles">';
 
