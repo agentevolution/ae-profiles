@@ -89,7 +89,7 @@ function do_agent_details() {
 
 function do_agent_social() {
 
-    if (genesis_get_custom_field('_agent_facebook') != '' || genesis_get_custom_field('_agent_twitter') != '' || genesis_get_custom_field('_agent_linkedin') != '' || genesis_get_custom_field('_agent_googleplus') != '' || genesis_get_custom_field('_agent_pinterest') != '') {
+    if (genesis_get_custom_field('_agent_facebook') != '' || genesis_get_custom_field('_agent_twitter') != '' || genesis_get_custom_field('_agent_linkedin') != '' || genesis_get_custom_field('_agent_googleplus') != '' || genesis_get_custom_field('_agent_pinterest') != '' || genesis_get_custom_field('_agent_youtube') != '' || genesis_get_custom_field('_agent_instagram') != '') {
 
         $output = '<div class="agent-social-profiles">';
 
@@ -111,6 +111,14 @@ function do_agent_social() {
 
         if (genesis_get_custom_field('_agent_pinterest') != '') {
             $output .= sprintf('<a class="icon-pinterest" href="%s" title="Pinterest Profile"></a>', genesis_get_custom_field('_agent_pinterest'));
+        }
+
+        if (genesis_get_custom_field('_agent_youtube') != '') {
+            $output .= sprintf('<a class="icon-youtube" href="%s" title="YouTube Profile"></a>', genesis_get_custom_field('_agent_youtube'));
+        }
+
+        if (genesis_get_custom_field('_agent_instagram') != '') {
+            $output .= sprintf('<a class="icon-instagram" href="%s" title="Instagram Profile"></a>', genesis_get_custom_field('_agent_instagram'));
         }
 
         $output .= '</div><!-- .agent-social-profiles -->';

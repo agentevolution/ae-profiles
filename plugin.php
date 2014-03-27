@@ -6,7 +6,7 @@
 	Author: Agent Evolution
 	Author URI: http://www.agentevolution.com
 
-	Version: 1.0.7
+	Version: 1.0.8
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php

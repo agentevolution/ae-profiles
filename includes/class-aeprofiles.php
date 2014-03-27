@@ -45,7 +45,9 @@ class Agent_Directory {
 			    __( 'Twitter URL:', 'apl' )			=> '_agent_twitter',
 				__( 'LinkedIn URL:', 'apl' )		=> '_agent_linkedin',
 				__( 'Google+ URL:', 'apl' )			=> '_agent_googleplus',
-				__( 'Pinterest URL:', 'apl' )		=> '_agent_pinterest'
+				__( 'Pinterest URL:', 'apl' )		=> '_agent_pinterest',
+				__( 'YouTube URL:', 'apl' )			=> '_agent_youtube',
+				__( 'Instagram URL:', 'apl' )		=> '_agent_instagram'
 			),
 		) );
 

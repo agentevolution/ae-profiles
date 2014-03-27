@@ -29,6 +29,7 @@
 
 .agent-social-profiles {
 	margin-top: 10px;
+	overflow: hidden;
 }
 
 .single-aeprofiles .agent-bio {
@@ -76,8 +77,8 @@
 .agent-social-profiles a {
 	display: block;
 	float: left;
-	margin-right: 10px;
-	font-size: 24px;
+	margin-right: 5px;
+	font-size: 18px;
 }
 
 
@@ -139,6 +140,8 @@
 .agent-social-profiles .icon-facebook:before { content: '\e800'; } /* '' */
 .agent-social-profiles .icon-twitter:before { content: '\e802'; } /* '' */
 .agent-social-profiles .icon-linkedin:before { content: '\e803'; } /* '' */
+.agent-social-profiles .icon-youtube:before { content: '\e805'; } /* '' */
+.agent-social-profiles .icon-instagram:before { content: '\e807'; } /* '' */
 
 
 /* ====== Images ====== */
