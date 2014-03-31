@@ -19,20 +19,7 @@ function agent_directory_archive_loop() {
 
 	$class = '';
 
-	global $post;
-
-	$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
-	$args = array(
-		'post_type'	=> 'aeprofiles',
-		'orderby'	=> 'menu_order',
-		'order'		=> 'ASC',
-		'paged' => $paged
-	);
-
-	$profile_query = new WP_Query($args);
-
-	if ( have_posts() ) : while ($profile_query->have_posts()) : $profile_query->the_post();
+	if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 	// starting at 0
 	$class = ( $class == 'even' ) ? 'odd' : 'even';

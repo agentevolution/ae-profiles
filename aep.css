@@ -162,8 +162,6 @@
 /* ====== Misc. ====== */
 
 .featured-agent .widget-wrap {overflow: hidden;}
-.agent-details .type, .featured-agent .type {display: none;}
-.agent-details .fax .type, .featured-agent .fax .type { display: inline-block; }
 .archive-aeprofiles h1.entry-title {
 	margin-bottom: 25px;
 	text-transform: capitalize;

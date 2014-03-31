@@ -10,7 +10,10 @@
  */
 class Agent_Directory {
 
-	var $menu_page = 'aep-settings';
+	var $settings_page = 'aep-settings';
+
+	var $settings_field = 'aeprofiles_taxonomies';
+	var $menu_page = 'register-aep-taxonomies';
 
 	var $options;
 
@@ -32,6 +35,7 @@ class Agent_Directory {
 			    __( 'License #:', 'aep' ) 		=> '_agent_license',
 			    __( 'Designations:', 'aep' ) 	=> '_agent_designations',
 			    __( 'Phone:', 'aep' ) 			=> '_agent_phone',
+			    __( 'Mobile:', 'aep' ) 			=> '_agent_mobile',
 			    __( 'Fax:', 'aep' ) 			=> '_agent_fax',
 			    __( 'Email:', 'aep' )			=> '_agent_email',
 			    __( 'Website (NO http://):', 'aep' )			=> '_agent_website',
@@ -87,7 +91,7 @@ class Agent_Directory {
 	 * Adds settings page under agent post type in admin menu
 	 */
 	function settings_init() {
-		add_submenu_page( 'edit.php?post_type=aeprofiles', __( 'Settings', 'aep' ), __( 'Settings', 'aep' ), 'manage_options', $this->menu_page, array( &$this, 'settings_page' ) );
+		add_submenu_page( 'edit.php?post_type=aeprofiles', __( 'Settings', 'aep' ), __( 'Settings', 'aep' ), 'manage_options', $this->settings_page, array( &$this, 'settings_page' ) );
 	}
 
 	/**
@@ -147,7 +151,7 @@ class Agent_Directory {
 
 	function metabox_save( $post_id, $post ) {
 
-		/** Run only on listings post type save */
+		/** Run only on aeprofiles post type save */
 		if ( 'aeprofiles' != $post->post_type )
 			return;
 

@@ -3,8 +3,26 @@
  * Holds functions used by the Agent Evolution Profiles Plugin
  */
 
-add_filter( 'template_include', 'aep_template_include' );
+add_action( 'pre_get_posts', 'aeprofiles_change_sort_order' );
+/**
+ * Add pagination and sort by menu order for aeprofiles archives
+ */
+function aeprofiles_change_sort_order( $query ) {
 
+    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+    
+    if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'aeprofiles' ) || is_tax() ) {
+        $query->set( 'orderby', 'menu_order' );
+        $query->set( 'order', 'ASC' );
+        $query->set( 'paged', $paged );
+    }
+ 
+}
+
+add_filter( 'template_include', 'aep_template_include' );
+/**
+ * Display based on templates in plugin, or override with same name template in theme directory
+ */
 function aep_template_include( $template ) {
 
     $post_type = 'aeprofiles';
@@ -50,7 +68,10 @@ function do_agent_details() {
         $output .= sprintf('<p class="title">%s</p>', genesis_get_custom_field('_agent_designations') );
 
     if (genesis_get_custom_field('_agent_phone') != '')
-        $output .= sprintf('<p class="tel"><span class="type">Work</span>%s</p>', genesis_get_custom_field('_agent_phone') );
+        $output .= sprintf('<p class="tel"><span class="type">Office</span>: %s</p>', genesis_get_custom_field('_agent_phone') );
+
+    if (genesis_get_custom_field('_agent_mobile') != '')
+        $output .= sprintf('<p class="tel"><span class="type">Cell</span>: %s</p>', genesis_get_custom_field('_agent_mobile') );
 
     if (genesis_get_custom_field('_agent_fax') != '')
         $output .= sprintf('<p class="tel fax"><span class="type">Fax</span>: %s</p>', genesis_get_custom_field('_agent_fax') );
@@ -61,7 +82,7 @@ function do_agent_details() {
     if (genesis_get_custom_field('_agent_website') != '')
         $output .= sprintf('<p><a class="website" href="http://%s">%s</a></p>', genesis_get_custom_field('_agent_website'), genesis_get_custom_field('_agent_website') );
 
-    if (genesis_get_custom_field('_agent_city') != '' || genesis_get_custom_field('_agent_address') != '' || genesis_get_custom_field('_agent_state') != '' ) {
+    if (genesis_get_custom_field('_agent_city') != '' || genesis_get_custom_field('_agent_address') != '' || genesis_get_custom_field('_agent_state') != '' || genesis_get_custom_field('_agent_zip') != '' ) {
 
         $address = '<p class="adr">';
 
@@ -74,12 +95,16 @@ function do_agent_details() {
         }
 
         if (genesis_get_custom_field('_agent_state') != '') {
-            $address .= '<abbr class="region">' . genesis_get_custom_field('_agent_state') . '</abbr>';
+            $address .= '<abbr class="region">' . genesis_get_custom_field('_agent_state') . '</abbr> ';
+        }
+
+        if (genesis_get_custom_field('_agent_zip') != '') {
+            $address .= '<span class="postal-code">' . genesis_get_custom_field('_agent_zip') . '</span>';
         }
 
         $address .= '</p>';
 
-        if (genesis_get_custom_field('_agent_address') != '' || genesis_get_custom_field('_agent_city') != '' || genesis_get_custom_field('_agent_state') != '' ) {
+        if (genesis_get_custom_field('_agent_address') != '' || genesis_get_custom_field('_agent_city') != '' || genesis_get_custom_field('_agent_state') != '' || genesis_get_custom_field('_agent_zip') != '' ) {
             $output .= $address;
         }
     }
@@ -125,4 +150,30 @@ function do_agent_social() {
 
         return $output;
     }
+}
+
+
+/**
+ * This function redirects the user to an admin page, and adds query args
+ * to the URL string for alerts, etc.
+ *
+ * This is just a temporary function, until WordPress fixes add_query_arg(),
+ * or Genesis 1.8 is released, whichever comes first.
+ *
+ */
+function aep_admin_redirect( $page, $query_args = array() ) {
+
+    if ( ! $page )
+        return;
+
+    $url = html_entity_decode( menu_page_url( $page, 0 ) );
+
+    foreach ( (array) $query_args as $key => $value ) {
+        if ( isset( $key ) && isset( $value ) ) {
+            $url = add_query_arg( $key, $value, $url );
+        }
+    }
+
+    wp_redirect( esc_url_raw( $url ) );
+
 }
