@@ -31,6 +31,10 @@ function agent_post_content() { ?>
 		<?php the_content(); ?>
 	</div><!-- .agent-bio -->
 
+	<div class="connected-agent-listings">
+		<?php aeprofiles_connected_listings_markup(); ?>
+	</div>
+
 <?php }
 
 genesis();

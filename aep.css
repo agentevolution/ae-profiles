@@ -87,9 +87,9 @@
   font-family: 'fontello-gap';
   src: url('icons/fontello-gap.eot?50594400');
   src: url('icons/fontello-gap.eot?50594400#iefix') format('embedded-opentype'),
-	   url('icons/fontello-gap.woff?50594400') format('woff'),
-	   url('icons/fontello-gap.ttf?50594400') format('truetype'),
-	   url('icons/fontello-gap.svg?50594400#fontello-gap') format('svg');
+       url('icons/fontello-gap.woff?50594400') format('woff'),
+       url('icons/fontello-gap.ttf?50594400') format('truetype'),
+       url('icons/fontello-gap.svg?50594400#fontello-gap') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -98,8 +98,8 @@
 /*
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
-	font-family: 'fontello-gap';
-	src: url('../font/fontello-gap.svg?50594400#fontello-gap') format('svg');
+    font-family: 'fontello-gap';
+    src: url('../font/fontello-gap.svg?50594400#fontello-gap') format('svg');
   }
 }
 */
@@ -120,7 +120,7 @@
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-	 
+     
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
  
