@@ -31,22 +31,22 @@ class Agent_Directory {
 
 		$this->agent_details = apply_filters( 'agent_directory_details', array(
 			'col1' => array(
-			    __( 'Title:', 'aep' ) 			=> '_agent_title',
-			    __( 'License #:', 'aep' ) 		=> '_agent_license',
-			    __( 'Designations:', 'aep' ) 	=> '_agent_designations',
-			    __( 'Phone:', 'aep' ) 			=> '_agent_phone',
-			    __( 'Mobile:', 'aep' ) 			=> '_agent_mobile',
-			    __( 'Fax:', 'aep' ) 			=> '_agent_fax',
-			    __( 'Email:', 'aep' )			=> '_agent_email',
-			    __( 'Website (NO http://):', 'aep' )			=> '_agent_website',
-			    __( 'Address:', 'aep' ) 		=> '_agent_address',
+				__( 'Title:', 'aep' ) 			=> '_agent_title',
+				__( 'License #:', 'aep' ) 		=> '_agent_license',
+				__( 'Designations:', 'aep' ) 	=> '_agent_designations',
+				__( 'Phone:', 'aep' ) 			=> '_agent_phone',
+				__( 'Mobile:', 'aep' ) 			=> '_agent_mobile',
+				__( 'Fax:', 'aep' ) 			=> '_agent_fax',
+				__( 'Email:', 'aep' )			=> '_agent_email',
+				__( 'Website (NO http://):', 'aep' )			=> '_agent_website',
+				__( 'Address:', 'aep' ) 		=> '_agent_address',
 				__( 'City:', 'aep' )			=> '_agent_city',
 				__( 'State:', 'aep' )			=> '_agent_state',
 				__( 'Zip:', 'aep' )				=> '_agent_zip'
 			),
 			'col2' => array(
-			    __( 'Facebook URL:', 'apl' ) 		=> '_agent_facebook',
-			    __( 'Twitter URL:', 'apl' )			=> '_agent_twitter',
+				__( 'Facebook URL:', 'apl' ) 		=> '_agent_facebook',
+				__( 'Twitter URL:', 'apl' )			=> '_agent_twitter',
 				__( 'LinkedIn URL:', 'apl' )		=> '_agent_linkedin',
 				__( 'Google+ URL:', 'apl' )			=> '_agent_googleplus',
 				__( 'Pinterest URL:', 'apl' )		=> '_agent_pinterest',
@@ -156,30 +156,30 @@ class Agent_Directory {
 			return;
 
 		if ( !isset( $_POST['aep_metabox_nonce'] ) || !wp_verify_nonce( $_POST['aep_metabox_nonce'], 'aep_metabox_save' ) )
-	        return $post_id;
+			return $post_id;
 
-	    /** Don't try to save the data under autosave, ajax, or future post */
-	    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
-	    if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) return;
-	    if ( defined( 'DOING_CRON' ) && DOING_CRON ) return;
+		/** Don't try to save the data under autosave, ajax, or future post */
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+		if ( defined( 'DOING_AJAX' ) && DOING_AJAX ) return;
+		if ( defined( 'DOING_CRON' ) && DOING_CRON ) return;
 
-	    /** Check permissions */
-	    if ( ! current_user_can( 'edit_post', $post_id ) )
-	        return;
+		/** Check permissions */
+		if ( ! current_user_can( 'edit_post', $post_id ) )
+			return;
 
-	    $agent_details = $_POST['aep'];
+		$agent_details = $_POST['aep'];
 
-	    /** Store the property details custom fields */
-	    foreach ( (array) $agent_details as $key => $value ) {
+		/** Store the property details custom fields */
+		foreach ( (array) $agent_details as $key => $value ) {
 
-	        /** Save/Update/Delete */
-	        if ( $value ) {
-	            update_post_meta($post->ID, $key, $value);
-	        } else {
-	            delete_post_meta($post->ID, $key);
-	        }
+			/** Save/Update/Delete */
+			if ( $value ) {
+				update_post_meta($post->ID, $key, $value);
+			} else {
+				delete_post_meta($post->ID, $key);
+			}
 
-	    }
+		}
 
 
 	}
