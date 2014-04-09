@@ -81,17 +81,17 @@ function ae_is_taxonomy_of($post_type) {
  */
 function aeprofiles_get_connected_posts_of_type($type) {
 
-    $connected = get_posts( array(
-        'connected_type'  => $type,
-        'connected_items' => get_queried_object(),
-        'nopaging'        => true
-    ) );
+	$connected = get_posts( array(
+		'connected_type'  => $type,
+		'connected_items' => get_queried_object(),
+		'nopaging'        => true
+	) );
 
-    if ( empty($connected) ) {
-        return false;
-    }
+	if ( empty($connected) ) {
+		return false;
+	}
 
-    return $connected;
+	return $connected;
 }
 
 /**
