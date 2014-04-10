@@ -17,8 +17,7 @@ function aeprofiles_show_connected_agent() {
 		echo'
 		<div class="connected-agent-listings">';
 		aeprofiles_connected_agents_markup();
-
-	echo '</div>';
+		echo '</div>';
 	}
 }
 

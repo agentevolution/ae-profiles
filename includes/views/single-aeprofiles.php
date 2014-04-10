@@ -19,7 +19,7 @@ add_action( 'genesis_entry_content' , 'agent_post_content' ); // HTML5
 function agent_post_content() { ?>
 
 	<div class="agent-wrap">
-		<?php echo agentevo_image($size='agent-profile-photo'); ?>
+		<?php echo get_the_post_thumbnail($post->ID, 'agent-profile-photo'); ?>
 		<div class="agent-details vcard">
 			<span class="fn" style="display:none;"><?php the_title(); ?></span>
 			<?php echo do_agent_details(); ?>
@@ -35,8 +35,7 @@ function agent_post_content() { ?>
 		echo'
 		<div class="connected-agent-listings">';
 		aeprofiles_connected_listings_markup();
-
-	echo '</div>';
+		echo '</div>';
 	}
 
 }

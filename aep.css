@@ -223,6 +223,17 @@
 
 /* ====== Misc. ====== */
 
+.clearfix:before {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: table;
+}
+
 .featured-agent .widget-wrap {overflow: hidden;}
 
 .archive-aeprofiles h1.entry-title {

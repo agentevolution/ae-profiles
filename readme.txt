@@ -11,6 +11,8 @@ This plugin creates a real estate agent directory for Genesis child themes.
 
 The Genesis Agent Profiles plugin uses custom post types and templates to create a real estate agent directory for Genesis child themes. Includes sidebar widget to display a featured agent.
 
+**New!** Now integrates with AgentPress Listings plugin to display agent's listings on each agent page, and display the listing agent on single listings. See the [Installation](http://wordpress.org/plugins/genesis-agent-profiles/installation/) tab for more info.
+
 == Installation ==
 
 1. Upload the entire `genesis-agent-profiles` folder to the `/wp-content/plugins/` directory
@@ -19,7 +21,7 @@ The Genesis Agent Profiles plugin uses custom post types and templates to create
 
 = Optional configuration =
 
-* To connect your Agent Profiles to listings added using the AgentPress Listings plugin
+The following steps will allow you to connect your Agent Profiles to listings added using the AgentPress Listings plugin.
 
 1. Install and activate the [Posts 2 Posts plugin](http://wordpress.org/plugins/posts-to-posts/). Also make sure the [AgentPress Listings plugin](http://wordpress.org/plugins/agentpress-listings/) is installed, activated, and listings exist.
 2. Once activated each listing and each agent profile will have a "Connected..." sidebar widget on the Edit screen. Use this to connect them by clicking the plus sign next to each post you want to connect to the current post. This is reciprocal and only has to be done on one of the two post types.
@@ -39,8 +41,7 @@ function aeprofiles_show_connected_agent() {
 		echo'
 		<div class="connected-agent-listings">';
 		aeprofiles_connected_agents_markup();
-
-	echo '</div>';
+		echo '</div>';
 	}
 }`
 
