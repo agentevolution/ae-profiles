@@ -52,9 +52,47 @@
 }
 
 .single-aeprofiles p.title {
-	font-weight: bold;
+	font-weight: 700;
 }
 
+.single-aeprofiles .connected-agent-listings h3 {
+	margin: 0 0 10px;
+}
+
+.single-aeprofiles .one-third {
+	float: left;
+	margin: 0 0 20px;
+	padding-left: 3%;
+}
+
+.single-aeprofiles .one-third {
+	width: 31%;
+}
+
+.single-aeprofiles .one-third.first {
+	clear: both;
+	padding-left: 0;
+}
+
+.single-aeprofiles .listing-price {
+	margin: 0;
+	padding: 0;
+	font-size: 120%;
+}
+
+.single-aeprofiles .listing-beds,
+.single-aeprofiles .listing-baths {
+	width: 48%;
+	float: left;
+}
+
+.single-aeprofiles .listing-baths {
+	float: right;
+}
+
+.single-aeprofiles span[class*="label-"] {
+	font-weight: 700;
+}
 
 /* ====== Hyperlinks ====== */
 
@@ -211,4 +249,19 @@
 	border-bottom: 1px solid #888;
 	border-bottom: 1px solid rgba(00,00,00,0.3);
 	width: 100%;
+}
+
+/* ====== Responsive ====== */
+
+/* Landscape phones and down */
+@media (max-width: 480px) {	
+	.single-aeprofiles .one-third {
+		width: 100%;
+		clear: both;
+		padding: 0;
+	}
+
+	.single-aeprofiles .one-third img {
+		width: 100%;
+	}
 }
