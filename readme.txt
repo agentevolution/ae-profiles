@@ -2,8 +2,8 @@
 Contributors: agentevolution
 Tags: real estate, agent directory, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
-Tested up to: 3.8
-Stable tag: 1.0.9
+Tested up to: 3.8.2
+Stable tag: 1.1
 
 This plugin creates a real estate agent directory for Genesis child themes.
 
@@ -16,6 +16,29 @@ The Genesis Agent Profiles plugin uses custom post types and templates to create
 1. Upload the entire `genesis-agent-profiles` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Start entering agents into the agent directory.
+
+= Optional configuration =
+
+* To connect your Agent Profiles to listings added using the AgentPress Listings plugin
+
+1. Install and activate the [Posts 2 Posts plugin](http://wordpress.org/plugins/posts-to-posts/)
+2. Once activated each listing and each agent profile will have a "Connected..." sidebar widget on the Edit screen. Use this to connect them by clicking the plus sign next to each post you want to connect to the current post. This is reciprocal and only has to be done on one of the two post types.
+3. Single Agent Profiles will automatically display connected listings. 
+4. The plugin includes a single-listing.php template that will be used if no single-listing.php exists in the child theme. If your theme already includes a single-listing.php template, to display connected agents on single listings, you must do one of two things:
+4a. Delete the single-listing.php in your child theme and the plugin's template will be used instead.
+4b. Edit your child theme's single-listing.php and include this code to display connected agents:
+
+`add_action( 'genesis_after_entry', 'aeprofiles_show_connected_agent' );
+
+function aeprofiles_show_connected_agent() {
+	if (function_exists('_p2p_init') && function_exists('agentpress_listings_init')) {
+		echo'
+		<div class="connected-agent-listings">';
+		aeprofiles_connected_agents_markup();
+
+	echo '</div>';
+	}
+}`
 
 == Frequently Asked Questions ==
 
@@ -31,7 +54,24 @@ You'll find the [FAQ on agentevolution.com](http://themes.agentevolution.com/gen
 
 4. All agents Dashboard screen
 
+5. Connected AgentPress Listings on Single Agent profile
+
+6. Connected Agent Profiles on Single AgentPress listing
+
+7. Connected Listings widget on Agent Profile Edit screen
+
+8. Connected Agent widget on AgentPress Listing Edit screen
+
+9. Register Taxonomy screen for Agent Profiles
+
 == Changelog ==
+
+= 1.1 =
+* Connect Agent Profiles to Agent Press Listings using [Posts 2 Posts plugin](http://wordpress.org/plugins/posts-to-posts/)
+* Display connected agent listings on single agent profile pages
+* Add custom single-listing.php template to display connected agent on single listings
+* Add link to Agent's listings in sidebar Featured Agent widget
+* Add antispambot function to email output to prevent spambots
 
 = 1.0.9 =
 * Add ability to register taxonomies. Used to segment agents/employees (i.e. Position/Agent or Position/Broker or Location/Here Location/There)
