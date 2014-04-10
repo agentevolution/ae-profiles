@@ -81,21 +81,21 @@ function ae_is_taxonomy_of($post_type) {
  */
 function aeprofiles_get_connected_posts_of_type($type) {
 
-	$connected = get_posts( array(
-		'connected_type'  => $type,
-		'connected_items' => get_queried_object(),
-		'nopaging'        => true
-	) );
+    $connected = get_posts( array(
+        'connected_type'  => $type,
+        'connected_items' => get_queried_object(),
+        'nopaging'        => true
+    ) );
 
-	if ( empty($connected) ) {
-		return false;
-	}
+    if ( empty($connected) ) {
+        return false;
+    }
 
-	return $connected;
+    return $connected;
 }
 
 /**
- * Outputs markup for the connected listings
+ * Outputs markup for the connected listings on single agents
  */
 function aeprofiles_connected_listings_markup() {
 
@@ -132,8 +132,44 @@ function aeprofiles_connected_listings_markup() {
 			get_the_post_thumbnail ($listing->ID, medium),
 			'</a>
 			<h4><a class="listing-title" href="', get_permalink($listing->ID), '">', get_the_title($listing->ID), '</a></h4>
-			<p class="listing-price">', get_post_meta($listing->ID, '_listing_price', true), '</p>',
-		'</div><!-- .connected-listings -->';
+			<p class="listing-price"><span class="label-price">Price: </span>', get_post_meta($listing->ID, '_listing_price', true), '</p>
+			<p class="listing-beds"><span class="label-beds">Beds: </span>', get_post_meta($listing->ID, '_listing_bedrooms', true), '</p><p class="listing-baths"><span class="label-baths">Baths: </span>', get_post_meta($listing->ID, '_listing_bathrooms', true),'</p>
+		</div><!-- .connected-listings -->';
+	}
+
+	wp_reset_postdata();
+}
+
+/**
+ * Outputs markup for the connected agents on single listings
+ */
+function aeprofiles_connected_agents_markup() {
+
+	$profiles = aeprofiles_get_connected_posts_of_type('agents_to_listings');
+
+	if ( empty($profiles) ) {
+		return;
+	}
+
+	echo '<h4>Listing Presented by:</h4>';
+
+	global $post;
+
+	foreach ($profiles as $profile) {
+
+		setup_postdata($profile);
+
+		$post = $profile;
+
+		echo '
+		<div ', post_class('connected-agents vcard'), '>
+			<a href="', get_permalink($profile->ID), '">',
+			get_the_post_thumbnail ($profile->ID, 'agent-profile-photo', array('class' => 'alignleft')),
+			'</a>
+			<h5><a class="fn agent-name" href="', get_permalink($profile->ID), '">', get_the_title($profile->ID), '</a></h5>';
+			echo do_agent_details();
+			echo do_agent_social();
+		echo '</div><!-- .connected-agents .vcard -->';
 	}
 
 	wp_reset_postdata();

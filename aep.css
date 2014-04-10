@@ -62,11 +62,11 @@
 .single-aeprofiles .one-third {
 	float: left;
 	margin: 0 0 20px;
-	padding-left: 3%;
-}
-
-.single-aeprofiles .one-third {
 	width: 31%;
+	padding-left: 3%;
+	-moz-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
+	box-sizing: content-box;
 }
 
 .single-aeprofiles .one-third.first {
@@ -75,9 +75,12 @@
 }
 
 .single-aeprofiles .listing-price {
+	position: relative;
 	margin: 0;
 	padding: 0;
 	font-size: 120%;
+	background: none;
+	color: inherit;
 }
 
 .single-aeprofiles .listing-beds,
@@ -94,8 +97,28 @@
 	font-weight: 700;
 }
 
-/* ====== Hyperlinks ====== */
+/* ====== Structure (single listing if connected) ====== */
 
+.single-listing .connected-agents {
+	background: #f5f5f5;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.single-listing .connected-agents h5,
+.single-listing .connected-agents p {
+	font-size: 85%;
+	line-height: 1;
+	margin-bottom: 10px;
+}
+
+/* Hide website and address */
+.single-listing .connected-agents .website,
+.single-listing .connected-agents .adr {
+	display: none;
+}
+
+/* ====== Hyperlinks ====== */
 
 .archive-aeprofiles a.fn {
 	font-size: 1.5em;
@@ -121,6 +144,7 @@
 
 
 /* ====== Icon font ====== */
+
 @font-face {
   font-family: 'fontello-gap';
   src: url('icons/fontello-gap.eot?50594400');
@@ -149,7 +173,7 @@
   speak: none;
  
   display: inline-block;
-  text-decoration: inherit;
+  text-decoration: none;
   width: 1em;
   margin-right: .2em;
   text-align: center;
@@ -184,9 +208,9 @@
 
 /* ====== Images ====== */
 
-
 .single-aeprofiles .agent-wrap img,
-.archive-aeprofiles .agent-wrap img {
+.archive-aeprofiles .agent-wrap img,
+.single-listing .connected-agents img {
 	float: left;
 	border: 1px solid #efefef;
 	-moz-box-shadow: 2px 2px 3px #DDD;
@@ -200,12 +224,14 @@
 /* ====== Misc. ====== */
 
 .featured-agent .widget-wrap {overflow: hidden;}
+
 .archive-aeprofiles h1.entry-title {
 	margin-bottom: 25px;
 	text-transform: capitalize;
 }
 
-.single-aeprofiles .backstretch {display: none;} /* Stop backstretch.js from displaying agent profile photo as background */
+/* Stop backstretch.js from displaying agent profile photo as background */
+.single-aeprofiles .backstretch {display: none;} 
 
 .archive-aeprofiles .navigation {clear: both;}
 
@@ -228,6 +254,7 @@
 .widget.featured-agent p {
 	font-size: 1em;
 	line-height: 170%;
+	text-align: left;
 	padding: 0;
 	margin: 0;
 }
@@ -245,7 +272,8 @@
 .widget-agent-wrap {
 	float: left;
 	clear: left;
-	padding: 20px 0;
+	padding: 0 0 20px;
+	margin: 0 0 20px;
 	border-bottom: 1px solid #888;
 	border-bottom: 1px solid rgba(00,00,00,0.3);
 	width: 100%;
