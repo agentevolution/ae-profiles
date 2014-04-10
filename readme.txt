@@ -21,12 +21,16 @@ The Genesis Agent Profiles plugin uses custom post types and templates to create
 
 * To connect your Agent Profiles to listings added using the AgentPress Listings plugin
 
-1. Install and activate the [Posts 2 Posts plugin](http://wordpress.org/plugins/posts-to-posts/)
+1. Install and activate the [Posts 2 Posts plugin](http://wordpress.org/plugins/posts-to-posts/). Also make sure the [AgentPress Listings plugin](http://wordpress.org/plugins/agentpress-listings/) is installed, activated, and listings exist.
 2. Once activated each listing and each agent profile will have a "Connected..." sidebar widget on the Edit screen. Use this to connect them by clicking the plus sign next to each post you want to connect to the current post. This is reciprocal and only has to be done on one of the two post types.
 3. Single Agent Profiles will automatically display connected listings. 
 4. The plugin includes a single-listing.php template that will be used if no single-listing.php exists in the child theme. If your theme already includes a single-listing.php template, to display connected agents on single listings, you must do one of two things:
-4a. Delete the single-listing.php in your child theme and the plugin's template will be used instead.
-4b. Edit your child theme's single-listing.php and include this code to display connected agents:
+
+= Option 1 =
+1. Delete the single-listing.php in your child theme and the plugin's template will be used instead.
+
+= Option 2 = 
+2. Edit your child theme's single-listing.php and include this code to display connected agents:
 
 `add_action( 'genesis_after_entry', 'aeprofiles_show_connected_agent' );
 
@@ -42,7 +46,7 @@ function aeprofiles_show_connected_agent() {
 
 == Frequently Asked Questions ==
 
-You'll find the [FAQ on agentevolution.com](http://themes.agentevolution.com/genesis-agent-profiles-faq/).
+You'll find the [FAQ on agentevolution.com](http://www.agentevolution.com/genesis-agent-profiles-faq/).
 
 == Screenshots ==
 
