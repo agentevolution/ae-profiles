@@ -26,12 +26,12 @@ function agent_directory_archive_loop() {
 
 	?>
 
-	<div class="agent-wrap <?php echo $class; ?>">
+	<div class="agent-wrap <?php echo $class; ?>" itemscope itemtype="http://schema.org/Person">
 		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image($size='agent-profile-photo') ); ?>
 		<div class="agent-details vcard">
 		<?php
 
-		printf('<p><a class="fn" href="%s">%s</a></p>', get_permalink(), get_the_title() );
+		printf('<p><a class="fn" href="%s" itemprop="name">%s</a></p>', get_permalink(), get_the_title() );
 
 		echo do_agent_details();
 		

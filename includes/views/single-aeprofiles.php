@@ -18,10 +18,10 @@ add_action( 'genesis_entry_content' , 'agent_post_content' ); // HTML5
 
 function agent_post_content() { ?>
 
-	<div class="agent-wrap">
+	<div class="agent-wrap" itemscope itemtype="http://schema.org/Person">
 		<?php echo get_the_post_thumbnail($post->ID, 'agent-profile-photo'); ?>
 		<div class="agent-details vcard">
-			<span class="fn" style="display:none;"><?php the_title(); ?></span>
+			<span class="fn" style="display:none;" itemprop="name"><?php the_title(); ?></span>
 			<?php echo do_agent_details(); ?>
 			<?php echo do_agent_social(); ?>
 		</div> <!-- .agent-details -->
