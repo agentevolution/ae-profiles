@@ -127,12 +127,12 @@ function aeprofiles_connected_listings_markup() {
 		$class = ($count == 1) ? ' first' : '';
 
 		echo '
-		<div class="one-third ', $class, ' connected-listings">
+		<div class="one-third ', $class, ' connected-listings" itemscope itemtype="http://schema.org/Offer">
 			<a href="', get_permalink($listing->ID), '">',
 			get_the_post_thumbnail($listing->ID, medium),
 			'</a>
-			<h4><a class="listing-title" href="', get_permalink($listing->ID), '">', get_the_title($listing->ID), '</a></h4>
-			<p class="listing-price"><span class="label-price">Price: </span>', get_post_meta($listing->ID, '_listing_price', true), '</p>
+			<h4 itemprop="itemOffered"><a class="listing-title" href="', get_permalink($listing->ID), '" itemprop="url">', get_the_title($listing->ID), '</a></h4>
+			<p class="listing-price"><span class="label-price">Price: </span><span itemprop="price">', get_post_meta($listing->ID, '_listing_price', true), '</span></p>
 			<p class="listing-beds"><span class="label-beds">Beds: </span>', get_post_meta($listing->ID, '_listing_bedrooms', true), '</p><p class="listing-baths"><span class="label-baths">Baths: </span>', get_post_meta($listing->ID, '_listing_bathrooms', true),'</p>
 		</div><!-- .connected-listings -->';
 	}
@@ -164,11 +164,11 @@ function aeprofiles_connected_agents_markup() {
 		$post = $profile;
 
 		echo '
-		<div ', post_class('connected-agents vcard'), '>
+		<div ', post_class('connected-agents vcard'), ' itemscope itemtype="http://schema.org/Person">
 			<a href="', get_permalink($profile->ID), '">',
 			get_the_post_thumbnail($profile->ID, 'agent-profile-photo', array('class' => 'alignleft')),
 			'</a>
-			<h5><a class="fn agent-name" href="', get_permalink($profile->ID), '">', get_the_title($profile->ID), '</a></h5>';
+			<h5><a class="fn agent-name" itemprop="name" href="', get_permalink($profile->ID), '">', get_the_title($profile->ID), '</a></h5>';
 			echo do_agent_details();
 			echo do_agent_social();
 		echo '</div><!-- .connected-agents .vcard -->';
