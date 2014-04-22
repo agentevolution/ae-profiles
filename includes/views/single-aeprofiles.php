@@ -19,7 +19,11 @@ add_action( 'genesis_entry_content' , 'agent_post_content' ); // HTML5
 function agent_post_content() { ?>
 
 	<div class="agent-wrap" itemscope itemtype="http://schema.org/Person">
-		<?php echo get_the_post_thumbnail($post->ID, 'agent-profile-photo'); ?>
+		<?php
+			$thumb_id = get_post_thumbnail_id();
+			$thumb_url = wp_get_attachment_image_src($thumb_id, 'agent-profile-photo', true);
+			echo '<img src="' . $thumb_url[0] . '" alt="' . get_the_title() . ' photo" class="attachment-agent-profile-photo wp-post-image" itemprop="image" />';
+		?>
 		<div class="agent-details vcard">
 			<span class="fn" style="display:none;" itemprop="name"><?php the_title(); ?></span>
 			<?php echo do_agent_details(); ?>

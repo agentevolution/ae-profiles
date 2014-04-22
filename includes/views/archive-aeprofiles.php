@@ -24,10 +24,17 @@ function agent_directory_archive_loop() {
 	// starting at 0
 	$class = ( $class == 'even' ) ? 'odd' : 'even';
 
+	$thumb_id = get_post_thumbnail_id();
+	$thumb_url = wp_get_attachment_image_src($thumb_id, 'agent-profile-photo', true);
+
 	?>
 
 	<div class="agent-wrap <?php echo $class; ?>" itemscope itemtype="http://schema.org/Person">
-		<?php printf('<a href="%s">%s</a>', get_permalink(), agentevo_image($size='agent-profile-photo') ); ?>
+		<?php
+			$thumb_id = get_post_thumbnail_id();
+			$thumb_url = wp_get_attachment_image_src($thumb_id, 'agent-profile-photo', true);
+			echo '<a href="' . get_permalink() . '"><img src="' . $thumb_url[0] . '" alt="' . get_the_title() . ' photo" class="attachment-agent-profile-photo wp-post-image" itemprop="image" /></a>';
+		?>
 		<div class="agent-details vcard">
 		<?php
 

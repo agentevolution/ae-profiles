@@ -118,6 +118,9 @@ function aeprofiles_connected_listings_markup() {
 
 		$post = $listing;
 
+		$thumb_id = get_post_thumbnail_id();
+		$thumb_url = wp_get_attachment_image_src($thumb_id, 'medium', true);
+
 		$count++;
 
 		if ( 4 == $count ) {
@@ -128,9 +131,7 @@ function aeprofiles_connected_listings_markup() {
 
 		echo '
 		<div class="one-third ', $class, ' connected-listings" itemscope itemtype="http://schema.org/Offer">
-			<a href="', get_permalink($listing->ID), '">',
-			get_the_post_thumbnail($listing->ID, medium),
-			'</a>
+			<a href="', get_permalink($listing->ID), '"><img src="', $thumb_url[0], '" alt="', get_the_title(), ' photo" class="attachment-agent-profile-photo wp-post-image" itemprop="image" /></a>
 			<h4 itemprop="itemOffered"><a class="listing-title" href="', get_permalink($listing->ID), '" itemprop="url">', get_the_title($listing->ID), '</a></h4>
 			<p class="listing-price"><span class="label-price">Price: </span><span itemprop="price">', get_post_meta($listing->ID, '_listing_price', true), '</span></p>
 			<p class="listing-beds"><span class="label-beds">Beds: </span>', get_post_meta($listing->ID, '_listing_bedrooms', true), '</p><p class="listing-baths"><span class="label-baths">Baths: </span>', get_post_meta($listing->ID, '_listing_bathrooms', true),'</p>
@@ -162,12 +163,12 @@ function aeprofiles_connected_agents_markup() {
 		setup_postdata($profile);
 
 		$post = $profile;
+		$thumb_id = get_post_thumbnail_id();
+		$thumb_url = wp_get_attachment_image_src($thumb_id, 'agent-profile-photo', true);
 
 		echo '
 		<div ', post_class('connected-agents vcard'), ' itemscope itemtype="http://schema.org/Person">
-			<a href="', get_permalink($profile->ID), '">',
-			get_the_post_thumbnail($profile->ID, 'agent-profile-photo', array('class' => 'alignleft')),
-			'</a>
+			<a href="', get_permalink($profile->ID), '"><img src="', $thumb_url[0], '" alt="', get_the_title(), ' photo" class="attachment-agent-profile-photo wp-post-image alignleft" itemprop="image" /></a>
 			<h5><a class="fn agent-name" itemprop="name" href="', get_permalink($profile->ID), '">', get_the_title($profile->ID), '</a></h5>';
 			echo do_agent_details();
 			echo do_agent_social();
