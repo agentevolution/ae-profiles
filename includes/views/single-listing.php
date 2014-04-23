@@ -15,7 +15,7 @@ add_action( 'genesis_after_entry', 'aeprofiles_show_connected_agent' );
 function aeprofiles_show_connected_agent() {
 	if (function_exists('_p2p_init') && function_exists('agentpress_listings_init')) {
 		echo'
-		<div class="connected-agent-listings">';
+		<div class="connected-agents">';
 		aeprofiles_connected_agents_markup();
 		echo '</div>';
 	}

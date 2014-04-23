@@ -3,7 +3,7 @@ Contributors: agentevolution
 Tags: real estate, agent directory, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.9
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 This plugin creates a real estate agent directory for Genesis child themes.
 
@@ -39,7 +39,7 @@ The following steps will allow you to connect your Agent Profiles to listings ad
 function aeprofiles_show_connected_agent() {
 	if (function_exists('_p2p_init') && function_exists('agentpress_listings_init')) {
 		echo'
-		<div class="connected-agent-listings">';
+		<div class="connected-agents">';
 		aeprofiles_connected_agents_markup();
 		echo '</div>';
 	}
@@ -70,6 +70,10 @@ You'll find the [FAQ on agentevolution.com](http://www.agentevolution.com/genesi
 9. Register Taxonomy screen for Agent Profiles
 
 == Changelog ==
+
+= 1.1.3 =
+* Fix for no agent profile image in featured agent widget
+* Allow editable widget title when only single agent is selected
 
 = 1.1.2 =
 * Updated schema.org markup to include image for agents and connected listings

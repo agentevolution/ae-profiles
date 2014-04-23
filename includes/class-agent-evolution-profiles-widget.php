@@ -15,6 +15,8 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 
 	function widget( $args, $instance ) {
 
+		global $post;
+
 		/** defaults */
 		$instance = wp_parse_args( $instance, array(
 			'post_id'	=> '',
@@ -37,7 +39,7 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 				);
 			} elseif ( !empty( $instance['post_id'] ) ) {
 				$post_id = explode( ',', $instance['post_id']);
-				echo $before_title . apply_filters( 'widget_title', $post_id[1], $instance, $this->id_base ) . $after_title;
+				echo $before_title . apply_filters( 'widget_title', $title , $instance, $this->id_base ) . $after_title;
 				$query_args = array(
 					'post_type'			=> 'aeprofiles',
 					'p'					=> $post_id[0],
@@ -50,8 +52,8 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 			if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 				if ( $instance['show_all'] == 1 )
-				echo '<div ', post_class('widget-agent-wrap'), '>
-				<a href="' . get_permalink() . '">' . agentevo_image($size='agent-profile-photo') . '</a>';
+				echo '<div ', post_class('widget-agent-wrap'), '>';
+				echo '<a href="', get_permalink(), '">', get_the_post_thumbnail( $post->ID, 'agent-profile-photo' ), '</a>';
 				printf('<div class="widget-agent-details"><a class="fn" href="%s">%s</a>', get_permalink(), get_the_title() );
 				echo do_agent_details();
 				if (function_exists('_p2p_init') && function_exists('agentpress_listings_init')) {
@@ -90,7 +92,6 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 		<p>
 			<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 			<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php esc_attr_e( $instance['title'] ); ?>" />
-			<em>Title is only used when &quot;Show all agents&quot; is selected, otherwise the Agent name is used for the widget title.</em>
 		</p>
 
 		<?php 
