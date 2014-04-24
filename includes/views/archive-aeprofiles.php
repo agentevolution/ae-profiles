@@ -15,21 +15,21 @@ function agent_directory_archive_loop() {
 
 	$title = preg_replace('/-/', ' ', $options['slug']);
 
-	echo '<div class="responsive-wrap"><h1 class="entry-title">', $title, '</h1>';
+	echo '<h1 class="entry-title">', $title, '</h1>';
 
 	$class = '';
 
 	if ( have_posts() ) : while ( have_posts() ) : the_post();
 
 	// starting at 0
-	$class = ( $class == 'even' ) ? 'odd' : 'even';
+	$class = ( $class == 'even agent-wrap' ) ? 'odd agent-wrap' : 'even agent-wrap';
 
 	$thumb_id = get_post_thumbnail_id();
 	$thumb_url = wp_get_attachment_image_src($thumb_id, 'agent-profile-photo', true);
 
 	?>
 
-	<div class="agent-wrap <?php echo $class; ?>" itemscope itemtype="http://schema.org/Person">
+	<div <?php post_class($class); ?> itemscope itemtype="http://schema.org/Person">
 		<?php
 			$thumb_id = get_post_thumbnail_id();
 			$thumb_url = wp_get_attachment_image_src($thumb_id, 'agent-profile-photo', true);
@@ -56,8 +56,7 @@ function agent_directory_archive_loop() {
 	
 	<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
 	<?php endif;
-
-	echo '</div><!-- .page -->';
+	
 }
 
 genesis();

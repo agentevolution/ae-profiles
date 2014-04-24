@@ -168,11 +168,11 @@ function aeprofiles_connected_agents_markup() {
 
 		echo '
 		<div ', post_class('connected-agents vcard'), ' itemscope itemtype="http://schema.org/Person">
-			<a href="', get_permalink($profile->ID), '"><img src="', $thumb_url[0], '" alt="', get_the_title(), ' photo" class="attachment-agent-profile-photo wp-post-image alignleft" itemprop="image" /></a>
-			<h5><a class="fn agent-name" itemprop="name" href="', get_permalink($profile->ID), '">', get_the_title($profile->ID), '</a></h5>';
+			<div class="agent-thumb"><a href="', get_permalink($profile->ID), '"><img src="', $thumb_url[0], '" alt="', get_the_title(), ' photo" class="attachment-agent-profile-photo wp-post-image alignleft" itemprop="image" /></a></div><!-- .agent-thumb -->
+			<div class="agent-details"><h5><a class="fn agent-name" itemprop="name" href="', get_permalink($profile->ID), '">', get_the_title($profile->ID), '</a></h5>';
 			echo do_agent_details();
 			echo do_agent_social();
-		echo '</div><!-- .connected-agents .vcard -->';
+		echo '</div><!-- .agent-details --></div><!-- .connected-agents .vcard -->';
 	}
 
 	echo '<div class="clearfix"></div>';
