@@ -1,5 +1,5 @@
 === Genesis Agent Profiles ===
-Contributors: agentevolution
+Contributors: agentevolution, davebonds, chadajohnson
 Tags: real estate, agent directory, agentpress, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.9
@@ -72,8 +72,8 @@ You'll find the [FAQ on agentevolution.com](http://www.agentevolution.com/genesi
 == Changelog ==
 
 = 1.1.4 =
-* Improve markup on agent archive page to include post classes and improve display
-* Improve markup on connected agents on single listings to improve display
+* Improve/add/remove markup on agent archive page to include post classes and improve display
+* Improve/add/remove markup for connected agents on single listings to improve display
 
 = 1.1.3 =
 * Fix for no agent profile image in featured agent widget
