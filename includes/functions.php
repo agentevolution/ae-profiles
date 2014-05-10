@@ -44,7 +44,7 @@ function aep_template_include( $template ) {
 
     $post_type = 'aeprofiles';
 
-    if ( ae_is_taxonomy_of($post_type) ) {
+    if ( aeprofiles_is_taxonomy_of($post_type) ) {
         if ( file_exists(get_stylesheet_directory() . '/archive-' . $post_type . '.php' ) ) {
             return get_stylesheet_directory() . '/archive-' . $post_type . '.php';
         } else {

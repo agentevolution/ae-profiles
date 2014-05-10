@@ -6,7 +6,7 @@
 	Author: Agent Evolution
 	Author URI: http://www.agentevolution.com
 
-	Version: 1.1.5
+	Version: 1.1.6
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -50,8 +50,7 @@ function agent_profiles_init() {
 	if ( ! function_exists( 'genesis_get_option' ) )
 		return;
 
-	if ( ! function_exists( 'agentevo_image' ) )
-		require_once dirname( __FILE__ ) . '/includes/helpers.php';
+	require_once dirname( __FILE__ ) . '/includes/helpers.php';
 
 	global $_agent_directory;
 
