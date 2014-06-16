@@ -56,7 +56,7 @@ class AgentEvolution_Profiles_Widget extends WP_Widget {
 				echo '<a href="', get_permalink(), '">', get_the_post_thumbnail( $post->ID, 'agent-profile-photo' ), '</a>';
 				printf('<div class="widget-agent-details"><a class="fn" href="%s">%s</a>', get_permalink(), get_the_title() );
 				echo do_agent_details();
-				if (function_exists('_p2p_init') && function_exists('agentpress_listings_init')) {
+				if (function_exists('_p2p_init') && function_exists('agentpress_listings_init') || function_exists('_p2p_init') && function_exists('wp_listings_init')) {
 					echo '<a class="agent-listings-link" href="' . get_permalink() . '#agent-listings">View My Listings</a>';
 				}
 				

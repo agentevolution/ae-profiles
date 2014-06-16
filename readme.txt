@@ -3,7 +3,7 @@ Contributors: agentevolution, davebonds, chadajohnson
 Tags: real estate, agent directory, agentpress, wp listings, wplistings, genesis, genesiswp, agent
 Requires at least: 3.2
 Tested up to: 3.9
-Stable tag: 1.1.6
+Stable tag: 1.1.7
 
 This plugin creates a real estate agent directory for Genesis child themes.
 
@@ -18,6 +18,16 @@ The Genesis Agent Profiles plugin uses custom post types and templates to create
 1. Upload the entire `genesis-agent-profiles` folder to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 3. Start entering agents into the agent directory.
+
+= Shortcode usage = 
+
+To display all agents:
+`[agent_profiles]`
+
+To selectively display only certain agents:
+`[agent_profiles id="$post_id"]`
+
+`$post_id` is the ID number of each agent post, separated by comma if more than one. You can find the ID by editing the agent and looking in your browser's address bar for `post=##`.
 
 = Optional configuration =
 
@@ -71,6 +81,10 @@ You'll find the [FAQ on agentevolution.com](http://www.agentevolution.com/genesi
 9. Register Taxonomy screen for Agent Profiles
 
 == Changelog ==
+
+= 1.1.7 =
+* Add shortcode to display one or more agents in a post or page
+* Add View Listings link for connected listings in single agent profiles and featured agent widget
 
 = 1.1.6 =
 * Cleanup, remove unused functions

@@ -289,6 +289,46 @@
 	width: 100%;
 }
 
+
+/* ====== Shortcode ====== */
+.shortcode-agent-wrap {
+	overflow: hidden;
+	clear: both;
+	margin-bottom: 25px;
+}
+
+.shortcode-agent-wrap img {
+	float: left;
+	margin: 0 10px 10px 0;
+	border: 1px solid #efefef;
+	-moz-box-shadow: 2px 2px 3px #DDD;
+	-webkit-box-shadow: 2px 2px 3px #DDD;
+	-khtml-box-shadow: 2px 2px 3px #DDD;
+	box-shadow: 2px 2px 3px #DDD;
+	max-width: 100%;
+}
+
+.shortcode-agent-details {
+	float: left;
+	margin-right: 20px;
+}
+
+.shortcode-agent-wrap .fn {
+	font-size: 20px;
+}
+
+.entry-content .shortcode-agent-details p {
+	margin: 0;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.shortcode-agent-wrap .agent-social-profiles {
+	float: right;
+	margin: 0;
+}
+
+
 /* ====== Responsive ====== */
 
 /* Landscape phones and down */

@@ -6,7 +6,7 @@
 	Author: Agent Evolution
 	Author URI: http://www.agentevolution.com
 
-	Version: 1.1.6
+	Version: 1.1.7
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -63,6 +63,7 @@ function agent_profiles_init() {
 	/** Includes */
 	require_once( dirname( __FILE__ ) . '/includes/class-aeprofiles.php' );
 	require_once( dirname( __FILE__ ) . '/includes/functions.php' );
+	require_once( dirname( __FILE__ ) . '/includes/shortcodes.php' );
 	require_once( dirname( __FILE__ ) . '/includes/class-taxonomies.php' );
 	require_once( dirname( __FILE__ ) . '/includes/class-agent-evolution-profiles-widget.php');
 
