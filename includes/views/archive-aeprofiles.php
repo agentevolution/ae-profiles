@@ -11,12 +11,6 @@ function add_body_class( $classes ) {
 
 function agent_directory_archive_loop() {
 
-	$options = get_option('plugin_ae_profiles_settings');
-
-	$title = preg_replace('/-/', ' ', $options['slug']);
-
-	echo '<h1 class="entry-title">', $title, '</h1>';
-
 	$class = '';
 
 	if ( have_posts() ) : while ( have_posts() ) : the_post();

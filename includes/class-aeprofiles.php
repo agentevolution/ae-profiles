@@ -124,7 +124,7 @@ class Agent_Directory {
 				'query_var'		=> true,
 				'menu_position'	=> 7,
 				'has_archive'	=> true,
-				'supports'		=> array( 'title', 'editor', 'comments', 'thumbnail', 'page-attributes', 'genesis-seo', 'genesis-layouts', 'genesis-simple-sidebars' ),
+				'supports'		=> array( 'title', 'editor', 'comments', 'thumbnail', 'page-attributes', 'genesis-seo', 'genesis-layouts', 'genesis-simple-sidebars', 'genesis-cpt-archives-settings' ),
 				'rewrite'		=> array( 'slug' => $this->options['slug'] ),
 			)
 		);
