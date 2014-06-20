@@ -53,6 +53,6 @@ function gap_profile_shortcode($atts, $content = null) {
     endforeach;
     wp_reset_postdata();
 
-    echo $output;
+    return $output;
     
 }
