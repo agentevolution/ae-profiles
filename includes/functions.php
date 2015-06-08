@@ -102,10 +102,10 @@ function do_agent_details() {
     if (genesis_get_custom_field('_agent_fax') != '')
         $output .= sprintf('<p class="tel fax" itemprop="faxNumber"><span class="type">Fax</span>: <span class="value">%s</span></p>', genesis_get_custom_field('_agent_fax') );
 
-    if (genesis_get_custom_field('_agent_email') != '')
+    if (genesis_get_custom_field('_agent_email') != '') {
         $email = genesis_get_custom_field('_agent_email');
         $output .= sprintf('<p><a class="email" itemprop="email" href="mailto:%s">%s</a></p>', antispambot($email), antispambot($email) );
-
+        }
     if (genesis_get_custom_field('_agent_website') != '')
         $output .= sprintf('<p><a class="website" itemprop="url" href="http://%s">%s</a></p>', genesis_get_custom_field('_agent_website'), genesis_get_custom_field('_agent_website') );
 
